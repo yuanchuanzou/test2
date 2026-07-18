@@ -1,0 +1,775 @@
+%% Beginning of file 'sample631.tex'
+%%
+%% Modified 2021 March
+%%
+%% This is a sample manuscript marked up using the
+%% AASTeX v6.31 LaTeX 2e macros.
+%%
+%% AASTeX is now based on Alexey Vikhlinin's emulateapj.cls 
+%% (Copyright 2000-2015).  See the classfile for details.
+
+%% AASTeX requires revtex4-1.cls and other external packages such as
+%% latexsym, graphicx, amssymb, longtable, and epsf.  Note that as of 
+%% Oct 2020, APS now uses revtex4.2e for its journals but remember that 
+%% AASTeX v6+ still uses v4.1. All of these external packages should 
+%% already be present in the modern TeX distributions but not always.
+%% For example, revtex4.1 seems to be missing in the linux version of
+%% TexLive 2020. One should be able to get all packages from www.ctan.org.
+%% In particular, revtex v4.1 can be found at 
+%% https://www.ctan.org/pkg/revtex4-1.
+
+%% The first piece of markup in an AASTeX v6.x document is the \documentclass
+%% command. LaTeX will ignore any data that comes before this command. The 
+%% documentclass can take an optional argument to modify the output style.
+%% The command below calls the preprint style which will produce a tightly 
+%% typeset, one-column, single-spaced document.  It is the default and thus
+%% does not need to be explicitly stated.
+%%
+%% using aastex version 6.3
+%\documentclass[linenumbers,twocolumn]{aastex631}
+\documentclass[linenumbers]{aastex631}
+%\documentclass[linenumbers,twocolumn]%{aastex631}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{color}
+\usepackage{makecell}
+\usepackage{appendix}
+\usepackage{mathrsfs}
+\usepackage{longtable}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue}
+%\usepackage[UTF8,heading = true]{ctex}
+\frenchspacing
+\newcommand{\ud}{\mathrm{d}}
+\newcommand{\dirac}{\partial\llap{$\diagup$\kern-2pt}}
+\newcommand{\fett}[1]{\boldsymbol{#1}}
+\newcommand{\fettu}[1]{\mathbf{#1}}
+\newcommand{\quabla}{\square}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\Heaviside}{\theta}
+\newcommand{\eig}{\mathrm{eig}}
+\newcommand{\e}{\mathrm{e}}
+%% The default is a single spaced, 10 point font, single spaced article.
+%% There are 5 other style options available via an optional argument. They
+%% can be invoked like this:
+%%
+%% \documentclass[arguments]{aastex631}
+%% 
+%% where the layout options are:
+%%
+%%  twocolumn   : two text columns, 10 point font, single spaced article.
+%%                This is the most compact and represent the final published
+%%                derived PDF copy of the accepted manuscript from the publisher
+%%  manuscript  : one text column, 12 point font, double spaced article.
+%%  preprint    : one text column, 12 point font, single spaced article.  
+%%  preprint2   : two text columns, 12 point font, single spaced article.
+%%  modern      : a stylish, single text column, 12 point font, article with
+%% 		  wider left and right margins. This uses the Daniel
+%% 		  Foreman-Mackey and David Hogg design.
+%%  RNAAS       : Supresses an abstract. Originally for RNAAS manuscripts 
+%%                but now that abstracts are required this is obsolete for
+%%                AAS Journals. Authors might need it for other reasons. DO NOT
+%%                use \begin{abstract} and \end{abstract} with this style.
+%%
+%% Note that you can submit to the AAS Journals in any of these 6 styles.
+%%
+%% There are other optional arguments one can invoke to allow other stylistic
+%% actions. The available options are:
+%%
+%%   astrosymb    : Loads Astrosymb font and define \astrocommands. 
+%%   tighten      : Makes baselineskip slightly smaller, only works with 
+%%                  the twocolumn substyle.
+%%   times        : uses times font instead of the default
+%%   linenumbers  : turn on lineno package.
+%%   trackchanges : required to see the revision mark up and print its output
+%%   longauthor   : Do not use the more compressed footnote style (default) for 
+%%                  the author/collaboration/affiliations. Instead print all
+%%                  affiliation information after each name. Creates a much 
+%%                  longer author list but may be desirable for short 
+%%                  author papers.
+%% twocolappendix : make 2 column appendix.
+%%   anonymous    : Do not show the authors, affiliations and acknowledgments 
+%%                  for dual anonymous review.
+%%
+%% these can be used in any combination, e.g.
+%%
+%% \documentclass[twocolumn,linenumbers,trackchanges]{aastex631}
+%%
+%% AASTeX v6.* now includes \hyperref support. While we have built in specific
+%% defaults into the classfile you can manually override them with the
+%% \hypersetup command. For example,
+%%
+%% \hypersetup{linkcolor=red,citecolor=green,filecolor=cyan,urlcolor=magenta}
+%%
+%% will change the color of the internal links to red, the links to the
+%% bibliography to green, the file links to cyan, and the external links to
+%% magenta. Additional information on \hyperref options can be found here:
+%% https://www.tug.org/applications/hyperref/manual.html#x1-40003
+%%
+%% Note that in v6.3 "bookmarks" has been changed to "true" in hyperref
+%% to improve the accessibility of the compiled pdf file.
+%%
+%% If you want to create your own macros, you can do so
+%% using \newcommand. Your macros should appear before
+%% the \begin{document} command.
+%%
+\newcommand{\vdag}{(v)^\dagger}
+\newcommand\aastex{AAS\TeX}
+\newcommand\latex{La\TeX}
+\usepackage{amsmath}
+
+%% Reintroduced the \received and \accepted commands from AASTeX v5.2
+%\received{March 1, 2021}
+%\revised{April 1, 2021}
+%\accepted{\today}
+
+%% Command to document which AAS Journal the manuscript was submitted to.
+%% Adds "Submitted to " the argument.
+%\submitjournal{PSJ}
+
+%% For manuscript that include authors in collaborations, AASTeX v6.31
+%% builds on the \collaboration command to allow greater freedom to 
+%% keep the traditional author+affiliation information but only show
+%% subsets. The \collaboration command now must appear AFTER the group
+%% of authors in the collaboration and it takes TWO arguments. The last
+%% is still the collaboration identifier. The text given in this
+%% argument is what will be shown in the manuscript. The first argument
+%% is the number of author above the \collaboration command to show with
+%% the collaboration text. If there are authors that are not part of any
+%% collaboration the \nocollaboration command is used. This command takes
+%% one argument which is also the number of authors above to show. A
+%% dashed line is shown to indicate no collaboration. This example manuscript
+%% shows how these commands work to display specific set of authors 
+%% on the front page.
+%%
+%% For manuscript without any need to use \collaboration the 
+%% \AuthorCollaborationLimit command from v6.2 can still be used to 
+%% show a subset of authors.
+%
+%\AuthorCollaborationLimit=2
+%
+%% will only show Schwarz & Muench on the front page of the manuscript
+%% (assuming the \collaboration and \nocollaboration commands are
+%% commented out).
+%%
+%% Note that all of the author will be shown in the published article.
+%% This feature is meant to be used prior to acceptance to make the
+%% front end of a long author article more manageable. Please do not use
+%% this functionality for manuscripts with less than 20 authors. Conversely,
+%% please do use this when the number of authors exceeds 40.
+%%
+%% Use \allauthors at the manuscript end to show the full author list.
+%% This command should only be used with \AuthorCollaborationLimit is used.
+
+%% The following command can be used to set the latex table counters.  It
+%% is needed in this document because it uses a mix of latex tabular and
+%% AASTeX deluxetables.  In general it should not be needed.
+%\setcounter{table}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% The following section outlines numerous optional output that
+%% can be displayed in the front matter or as running meta-data.
+%%
+%% If you wish, you may supply running head information, although
+%% this information may be modified by the editorial offices.
+\shorttitle{ Gaps in Prompt high-energy emission }
+%\shortauthors{X.-Y. Song et al. }
+
+
+%%
+%% You can add a light gray and diagonal water-mark to the first page 
+%% with this command:
+%% \watermark{text}
+%% where "text", e.g. DRAFT, is the text to appear.  If the text is 
+%% long you can control the water-mark size with:
+%% \setwatermarkfontsize{dimension}
+%% where dimension is any recognized LaTeX dimension, e.g. pt, in, etc.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{{./}{figures/}}
+%% This is the end of the preamble.  Indicate the beginning of the
+%% manuscript itself with \begin{document}.
+
+\begin{document}
+\title{
+%The extraordinary prompt high-energy emission in GRB 210704A: nuclide absorption or multi-mechanism
+%Anomalous prompt high-energy emission in GRB 210704A: resonant nuclide absorption versus multi-component emission mechanisms %by Ma
+%Peculiar prompt high-energy emission in GRB 210704A: a possible resonant nuclide absorption process %by Song
+Spectroscopic Signature of r-Process Nucleosynthesis in a Gamma-Ray Burst: \\ Possible Resonant Deuterium Absorption in GRB 210704A
+}
+
+%% LaTeX will automatically break titles if they run longer than
+%% one line. However, you may use \\ to force a line break if
+%% you desire. In v6.31 you can include a footnote in the title.
+
+%% A significant change from earlier AASTEX versions is in the structure for 
+%% calling author and affiliations. The change was necessary to implement 
+%% auto-indexing of affiliations which prior was a manual process that could 
+%% easily be tedious in large author manuscripts.
+%%
+%% The \author command is the same as before except it now takes an optional
+%% argument which is the 16 digit ORCID. The syntax is:
+%% \author[xxxx-xxxx-xxxx-xxxx]{Author Name}
+%%
+%% This will hyperlink the author name to the author's ORCID page. Note that
+%% during compilation, LaTeX will do some limited checking of the format of
+%% the ID to make sure it is valid. If the "orcid-ID.png" image file is 
+%% present or in the LaTeX pathway, the OrcID icon will appear next to
+%% the authors name.
+%%
+%% Use \affiliation for affiliation information. The old \affil is now aliased
+%% to \affiliation. AASTeX v6.31 will automatically index these in the header.
+%% When a duplicate is found its index will be the same as its previous entry.
+%%
+%% Note that \altaffilmark and \altaffiltext have been removed and thus 
+%% can not be used to document secondary affiliations. If they are used latex
+%% will issue a specific error message and quit. Please use multiple 
+%% \affiliation calls for to document more than one affiliation.
+%%
+%% The new \altaffiliation can be used to indicate some secondary information
+%% such as fellowships. This command produces a non-numeric footnote that is
+%% set away from the numeric \affiliation footnotes.  NOTE that if an
+%% \altaffiliation command is used it must come BEFORE the \affiliation call,
+%% right after the \author command, in order to place the footnotes in
+%% the proper location.
+%%
+%% Use \email to set provide email addresses. Each \email will appear on its
+%% own line so you can put multiple email address in one \emaZou}
+
+%\correspondingauthor{Xin-Ying Song, Yuan-chuan Zou, Bo-Qiang Ma}
+%\email{songxy@ihep.ac.cn, zouyc@hust.edu.cn, mabq@pku.edu.cn}
+
+
+%\author{Xin-Ying Song}
+%\affiliation{School of Astronomy and Space Science, Nanjing University, Nanjing 210023, People’s Republic of China}
+%\affiliation{Department of Astronomy, School of Physical Sciences, University of Science and Technology of China, Hefei 230026, People’s Republic of China}
+
+
+%\author{Qing Liu}
+%\affil{}
+
+%\author{Yuan-Chuan Zou}
+%\affil{}
+
+%\author{Yuan-Yuan Zuo}
+%\affil{}
+
+%\author{Bo-Qiang Ma}
+%\affil{}
+
+%% Note that the \and command from previous versions of AASTeX is now
+%% depreciated in this version as it is no longer necessary. AASTeX 
+%% automatically takes care of all commas and "and"s between authors names.
+
+%% AASTeX 6.31 has the new \collaboration and \nocollaboration commands to
+%% provide the collaboration status of a group of authors. These commands 
+%% can be used either before or after the list of corresponding authors. The
+%% argument for \collaboration is the collaboration identifier. Authors are
+%% encouraged to surround collaboration identifiers with ()s. The 
+%% \nocollaboration command takes no argument and exists to indicate that
+%% the nearby authors are not part of surrounding collaborations.
+
+%% Mark off the abstract in the ``abstract'' environment.
+%TC:ignore
+\begin{abstract}
+
+%GRB 210704A has an unusual stellar progenitor, although a previous work tried to decipher this puzzle. An extraordinary phenomenon is observed in the prompt high-energy emission; sub-GeV and GeV photons are discretely distributed in the energy spectrum, and their gaps cannot be interpreted as the statistical fluctuations of a spectral model (e.g. a power-law function). Moreover, the temporal evolution of the energy envelope of sub-GeV photons traces that of GeV photons correlatively. Some physical interpretations are proposed, including nuclide absorption and multi-mechanism, which gives a further implications in the production of high-energy gamma rays. #initialy by song
+
+
+%Gamma-ray burst (GRB) 210704A features an unusual stellar progenitor, a puzzle that remains unresolved despite prior investigative efforts. A striking phenomenon is identified in its prompt high-energy emission: sub-GeV (100 MeV–1 GeV) and GeV (1–10 GeV) photons exhibit a discrete gap distribution in the energy spectrum. This energy gap is statistically significant—it cannot be attributed to random fluctuations of canonical spectral models (e.g., a simple power-law function). Furthermore, the temporal evolution of the energy envelope of sub-GeV photons shows a strong correlative trend with that of GeV photons, indicating a common or coupled physical origin for the two energy bands. To explain these anomalies, we propose candidate physical interpretations, including resonant nuclide absorption (consistent with the discrete energy gap) and multi-component emission mechanisms (accounting for the correlated temporal behavior). This work not only constrains the progenitor properties of GRB 210704A but also offers critical insights into the underpinning physics of high-energy gamma-ray production in GRBs, particularly the role of nuclear processes and multi-scale emission mechanisms in extreme astrophysical environments. % from Mabq 
+
+
+%Gamma-ray burst (GRB) 210704A features an unusual stellar progenitor, a puzzle that remains unresolved despite previous investigative efforts. A striking phenomenon is observed in the prompt high-energy emission; sub-GeV and GeV (1–10 GeV) photons are discretely distributed in the energy spectrum; the energy gap between them is identified as statistically significant—it cannot be attributed to random statistical fluctuations of a canonical spectral model (e.g., a power-law function). Furthermore, the temporal evolution of the energy envelope of sub-GeV photons shows a strong correlative trend with that of GeV photons. Among various candidate physical interpretations, we found that resonant nuclide absorption is more natural than multi-component emission mechanisms. This work offers critical insights into the underpinning physics of high-energy gamma-ray production in GRBs, particularly the role of nuclear processes and multi-scale emission mechanisms in extreme astrophysical environments.
+
+Neutron star mergers are confirmed sites of rapid neutron-capture process (r-process) nucleosynthesis, typically inferred from late-time kilonova emissions. Here, we report the detection of a statistically significant spectral gap between sub-GeV and GeV photons in the prompt emission of GRB 210704A. By constraining the bulk Lorentz factor ($\Gamma \approx 200-300$), we map this gap to an energy of $\sim 4-7$ MeV in the comoving frame. We show that this feature is naturally explained by resonant photodissociation of deuterium ($^2$H), whereas the Giant Dipole Resonance of heavier nuclei occurs at much higher energies ($\sim 20$ MeV). Furthermore, the extremely short dynamical timescale of the prompt emission favors the survival of deuterium, as the formation of heavier r-process elements is bottlenecked by slower $\beta$-decays. This observation provides the first spectroscopic evidence of light r-process element formation within a relativistic jet, linking the immediate aftermath of a compact object merger to nucleosynthesis.
+
+\end{abstract}
+%TC:endignore
+
+
+%% Keywords should appear after the \end{abstract} command. 
+%% The AAS Journals now uses Unified Astronomy Thesaurus concepts:
+%% https://astrothesaurus.org
+%% You will be asked to selected these concepts during the submission process
+%% but this old "keyword" functionality is maintained in Consequence.Authors want
+%% to include these concepts in their preprints.
+\keywords{ Particle astrophysics (96); High energy astrophysics (739); Particle physics (2088); gamma ray burst (639)}
+
+%% From the front matter, we move on to the body of the paper.
+%% Sections are demarcated by \section and \subsection, respectively.
+%% Observe the use of the LaTeX \label
+%% command after the \subsection to give a symbolic KEY to the
+%% subsection for cross-referencing in a \ref command.
+%% You can use LaTeX's \ref and \label commands to keep track of
+%% cross-references to sections, equations, tables, and figures.
+%% That way, if you change the order of any elements, LaTeX will
+%% automatically renumber them.
+%%
+%% We recommend that authors also use the natbib \citep
+%% and \citet commands to identify citations.  The citations are
+%% tied to the reference list via symbolic KEYs. The KEY corresponds
+%% to the KEY in the \bibitem in the reference list below. 
+
+\section{Introduction} \label{sec:intro}
+
+%Gamma-ray bursts (GRBs) are brief intense explosive events of $\gamma$-rays with a broadband spectral coverage (keV to GeV, or even higher energy). %Despite about a half century of observations, prompt gamma-ray burst (GRB) emission mechanisms are still a matter of interest.
+%The theoretical models for the radiation mechanism of high-energy $\gamma$ -rays are enriched for the radiation mechanism from a phenomenological perspective.  Many mechanisms have been proposed for the generation of high-energy photons observed from GRBs such as hadron collisions, the inverse Compton (IC) scattering, synchrotron and Synchrotron-self Compton (SSC)~\citep[e.g.]{1994MNRAS.269L..41M,1998ApJ...494L.167P,2007MNRAS.380...78G,2008FrPhC...3..306F}. The high-energy emission is always delayed relative to the MeV emission, and some proposals are put forward to account for this delay: the acceleration of electrons in the cases of internal or external shocks~\citep[e.g.][]{2011MNRAS.412..522B}, the upscattered cocoon~\citep{2011MNRAS.415.1663T}; especially, the small delay is determined by optical depth for high-energy photons~\citep[]{2010MNRAS.407.1033B,2011ApJ...733L..40M,2012MNRAS.421L..39B}. 
+Gamma-ray bursts (GRBs) are brief yet extremely intense explosive events emitting $\gamma$-rays, featuring an ultra-broad spectral coverage spanning from keV to GeV energies, with some events even extending to higher energy regimes. Despite nearly half a century of observational investigations, the physical mechanism underlying prompt GRB emission remains a core research focus in astrophysics.
+From a phenomenological perspective, a variety of theoretical models have been developed and refined to explain the mechanism of high-energy $\gamma$-ray radiation of GRBs. Numerous physical processes have been proposed for the production of high-energy photons observed in GRBs, including hadron collisions, inverse    Compton (IC) scattering, synchrotron radiation, and synchrotron self-Compton (SSC) radiation \citep[][e.g.]{1994MNRAS.269L..41M,1998ApJ...494L.167P,2007MNRAS.380...78G,2008FrPhC...3..306F}. Notably, the high-energy emission of GRBs is typically delayed relative to the MeV-band emission. To account for this delay, several theoretical explanations have been proposed: electron acceleration in internal or external shock scenarios \citep[e.g.][]{2011MNRAS.412..522B}, up-scattered cocoon radiation \citep{2011MNRAS.415.1663T}, and, particularly, the optical depth of high-energy photons which dominates the small-delay phenomenon \citep{2010MNRAS.407.1033B,2011ApJ...733L..40M,2012MNRAS.421L..39B}.
+
+%It is known that neutron star mergers contribute, and some classes of core-collapse supernovae are also possible sources of at least the lighter r-process species~\cite[e.g. see the review in][]{2019LRR....23....1M}, thus nuclear processes may occur in scenarios of GRB production. Some observations have been reported in MeV $\gamma$ -rays~\cite[e.g.][]{2024ApJ...968L...5W,2025ApJ...983L..33Z}, which are due to nuclear processes. However, spectral or absorption lines have been hardly observed in high-energy emissions of hundreds of MeV to GeV.
+
+It is well-established that neutron star mergers contribute significantly to the nucleosynthesis of the r-process, while certain types of core-collapse supernovae are also recognized as potential sites for synthesizing at least light elements of the r-process \citep[e.g. see the review in][]{2019LRR....23....1M}. This suggests that nuclear processes are highly likely to occur in GRB formation scenarios. Observational evidence has confirmed MeV-band $\gamma$-ray emissions originating from nuclear processes \citep[e.g.][]{2018ApJ...869..130R, 2019LRR....23....1M,2020ApJ...903L...3W,2024Natur.626..737L,2024ApJ...968L...5W,2025ApJ...983L..33Z}.
+However, spectral lines or absorption lines have rarely been clearly detected in higher-energy emissions ranging from hundreds of MeV to GeV. %A key gap in GRB observational literature lies in the paucity of discrete spectral features (e.g., gaps, lines) in the sub-GeV (100 MeV–1 GeV) and GeV (1–10 GeV) bands. While nuclear process-related signatures have been reported in the MeV range for some GRBs~\citep{2024ApJ...968L...5W,2025ApJ...983L..33Z}, analogous discrete structures in the high-energy regime remain extremely rare—if not unreported—across thousands of observed GRBs~\citep{2019LRR....23....1M}. 
+
+
+
+
+%In this $letter$, we focus on a GRB 210704A, with extraordinary prompt high-energy emission, among which there exists a gap which cannot be interpreted as statical fluctuations; moreover, the correlation between the energy envelope of sub-GeV and GeV photons seems evident. A detailed study on this special case is performed to investigate the nature. It may lead to a deep understanding of the structure and physical composition of the relativistic outflow, as well, the neutron-rich outflow and environment of the GRBs. %In our analysis, the origin of prompt high-energy $\gamma$-rays are most likely different from those which arrive after the prompt phase and has quite long durations (ks to days). Besides, it is found that there exists a trend of evolution with time between the energies of sub-GeV and GeV photons, which provides extra information for the nature of prompt high-energy emissions. In this letter, based on the emission properties,  a new test is performed to constrain Lorentz invariance Violation (LIV) ~\citep[e.g.,][]{1997IJMPA..12..607A,1998Natur.393..763A}.
+
+
+
+
+
+%The paper is organized as follows: in Section~\ref{sec:obs}, the observation properties of GRB 210704A are introduced and extracted; in Section~\ref{sec:ana}, the origins of prompt high-energy photons are discussed; the possible scenarios that produce the correlation between the sub-GeV and GeV prompt emission are determined; %in Sections~\ref{sec:LIV}, based on the results in Section~\ref{sec:ana}, LIV is constrained. 
+%The results are discussed and summarized in Section~\ref{sec:discussion}.
+
+GRB 210704A stands out as an exceptional deviation from the canonical properties of GRB~\citep{2021GCN.30380....1M,2023MNRAS.522.5204B}. Previous work has noted its unusual stellar progenitor, but the burst’s prompt high-energy emission—central to the present study—has not been rigorously characterized in terms of its phenomenological features in high-energy emission. In this $letter$, we focus exclusively on data-driven observational findings, i.e. the statistically significant gap in the high-energy spectrum; we demonstrate that this anomaly corresponds to the photodissociation threshold of deuterium ($^2$H) in the jet's comoving frame. This identification implies that the jet was loaded with r-process seed nuclei synthesized on second timescales, consistent with a neutron star merger origin.
+
+The paper is organized as follows: Section~\ref{sec:obs} describes the observational data of GRB 210704A and the methods used to extract key prompt emission properties Section~\ref{sec:ana} presents a quantitative statistical analysis to confirm the gaps in the time-integrated (TI) and time-resolved (TR) spectra of high-energy emission; these phenomenological features, including temporal correlation and coordinated energy evolution trends between the energy-envelope of sub-GeV and GeV photons, are extracted and evaluated; Section~\ref{sec:physical_interpretation} presents candidate physical interpretations derived from observational constraints;
+Section~\ref{sec:discussion} provides a brief discussion on the possible origins of the peculiar phenomenon in this work and summarizes their implications for future observational studies of prompt high-energy emission of GRBs.
+%contextualizes these findings against canonical GRB observations 
+
+
+\iffalse 
+%Mabq
+we focus exclusively on data-driven observational findings, presenting three key, statistically robust phenomenological properties of GRB 210704A’s prompt high-energy emission (100 MeV–10 GeV):  
+
+1. {\bf Discrete spectral gaps}: Sub-GeV and GeV photons exhibit distinct, non-continuous gaps in their energy spectrum. These gaps are validated via rigorous statistical tests (including $\chi^2$ goodness-of-fit analysis and Monte Carlo simulations of spectral fluctuations) and are incompatible with random variations of canonical spectral models (e.g., power-law, Band function).  
+
+2. {\bf Tight temporal correlation of energy envelopes}: The temporal evolution of the energy envelope of sub-GeV emission shows a robust, linear correlation with that of GeV emission. This correlation persists across the entire prompt phase and is fundamentally different from the well-documented delay of GeV emission relative to MeV emission.  
+
+3. {\bf Coordinated energy-dependent temporal evolution}: The dominant energies of both sub-GeV and GeV photon populations evolve in a coordinated manner throughout the prompt emission. This trend is consistent across all time bins of the prompt phase, with no evidence of decoupling between the two energy bands.  
+
+These phenomenological features are unprecedented in GRB prompt high-energy observations. The core goal of this work is to present these data-driven findings in detail, quantify their statistical significance, and contextualize them against existing GRB observational datasets—with no emphasis on theoretical interpretations, physical mechanisms, or origin scenarios. By documenting these unique observational properties, we aim to provide a rigorous, model-independent benchmark that can inform future studies of GRB diversity and constrain the range of possible prompt emission behaviors. Notably, while broader implications for GRB physics are not the focus here, the discrete spectral gaps and correlated energy-envelope evolution of GRB 210704A offer a novel observational template to test the generality of canonical GRB models.  
+
+The paper is organized as follows: Section \ref{sec:obs} describes the observational data of GRB 210704A and the methods used to extract key prompt emission properties (e.g., energy binning, photon selection criteria). Section \ref{sec:ana} presents a quantitative analysis of the discrete spectral gaps, temporal correlation between sub-GeV and GeV energy envelopes, and coordinated energy evolution trend—focused solely on measuring and validating these phenomenological features. Section 4 presents candidate physical interpretations derived from observational constraints: it elaborates resonant nuclide absorption (linked to discrete spectral gaps via nuclear energy level matching) and multi-component emission mechanisms (e.g., coexisting synchrotron-SSC radiation, tied to correlated temporal behavior via shared relativistic outflow), while emphasizing these are model candidates rather than definitive conclusions.
+Section \ref{sec:discussion} contextualizes these findings against canonical GRB observations and summarizes their implications for future observational studies of GRB prompt high-energy emission.  
+\fi
+
+\section{The observation of GRB 210704A}\label{sec:obs}
+
+\subsection{light curves, spectra and jet properties}\label{sec:obs.1}
+
+GRB 210704A has an intermediate duration and most of the radiated energy is emitted in the first 2 s~\citep{2021GCN.30380....1M,2023MNRAS.522.5204B}. The nature of its progenitor remains uncertain. Its prompt high-energy emission ($>100$ MeV) has a short delay of $\sim 1$ s and the dominant emission component lasts about 1 s in the frame of the observer, as shown in Figure~\ref{fig:observation} (a). 
+
+In the first 0.5 s the spectral is well described by the non-dissipative photospheric (NDP) model~\citep[e.g.,][]{2013A,Deng_2014,2022MNRAS.512.5693S,2022ApJ...931..112S}\footnote{The parameters extracted are listed as follows: $\log_{10} r_0=8.53^{+0.16}_{-0.25}$ cm, $\eta=217.7^{+108.8}_{-80.3}$, $\theta_c=0.13^{+0.06}_{-0.07}$ and $\log_{10} L_{\rm w}=49.77^{+0.51}_{-0.65}$, where $r_0$ is the initial radius for the outflow, $\eta$, $\theta_{\rm c}$ and $L_{\rm w}$ are the dimensionless entropy, the half-opening angle for the jet core and the wind luminosity, respectively; the index of the power-law index of the profile of structure jet is $p=8.5^{+6.1}_{-5.9}$, the red shift is determined to be $z=0.27^{+0.14}_{-0.12}$.}. The redshift ($z$) has not been determined precisely
+by the detection, however, some empirical relations, e.g. Amati-relation and EH - $T_{90}$ diagram, provide a constraint of $z>0.11$ within the $2\sigma$ level~\citep{2021GCN.30452....1M}. A previous work~\citep{2023MNRAS.522.5204B} gives an estimate of $z<0.4$ for the suggestion of short GRBs, and their analysis proposed that this burst is originated from an exotic high-energy merger.
+Note that the estimated $z=0.27^{+0.14}_{-0.12}$ is extracted by NDP modeling, which is consistent well with their results; therefore, the following analysis is performed with $z=0.27$.
+
+ The BAND function, exponential cutoff power law (CPL) and multicolor blackbody (mBB) function~\citep[e.g.][]{2008ApJ...682..463P,2010ApJ...709L.172R,2018ApJ...866...13H} (or plus on a power law (PL) component) are used to describe the time-resolved spectra in the first 2 s. By the Bayesian information criterion method~\citep[BIC,][]{2016MNRAS.463.1144W}, CPL is better than the BAND function in the modeling, and the low energy photon index ($\alpha$) varies from 0 to -0.64 with time, which is above the synchrotron death line ($\alpha=-2/3$) as shown in Figure~\ref{fig:observation}(b). The modeling of thermal emission with mBB(+PL) could describe the spectra well, especially in $T_0+1$ s to 1.5 s, the combined model of mBB+PL is the best model\footnote{However, the contribution from the non-thermal part modeled with PL accounts for $\sim6\%$ of the radiative energy in this bin. Moreover, the index ($\alpha_2$) of the PL is estimated to be about -2.8; most photons are from low-energy band below 100 keV.}. This implies that the prompt phase in the MeV energy band could be dominated by photospheric emission in the first 1 s; the contribution from non-thermal emission becomes larger later, however, due to the low statistic, the modeling with two components has considerable uncertainties. 
+ 
+ 
+ 
+
+
+\subsection{high-energy prompt emissions from Fermi-LAT}
+The prompt high-energy photons ($>100$ MeV) peaks at $T_0+0.96$ s, which has a small delay of about 0.2 s relative to the peak of MeV emission, as shown in Fig~\ref{fig:observation} (a). It is evident that the origin of the prompt GeV emission is different from those which arrive after the end of the prompt phase. The LAT data of TRANSIENT020 class (or evclass=16) is used in the analysis to maximize the statistics for spectral analysis of GRB prompt emission~\footnote{see the details in the web page in \href{https://fermi.gsfc.nasa.gov/ssc/data/analysis/LAT_caveats.HTML}{Fermi LAT caveats.}}.
+
+
+There are several discrete distributions on energy spectrum from $T_0$ to $T_0 +2$ s as shown in Fig.~\ref{fig:observation} (c). The energy envelope of sub-GeV photons begins at 0.55 GeV (denoted $\gamma^{\rm envelop}_{\rm  sub-GeV}$) at $T_0+0.7$s, drops to 0.25 GeV at $T_0+1.2$ s, and then increases to 0.6 GeV after $T_0+2$ s. It seems that the GeV photons below 5 GeV (denoted as $\gamma_{\rm 1-5 GeV}$) evolve with a trend similar to that of the energy envelope of sub-GeV photons. The photon with highest energy (denoted as $\gamma_{16.1 \rm GeV}$) of 16.1 GeV reaches at $T_0+0.96$ s, while two photons of about 8 GeV arrive between $\gamma_{\rm 1-5 GeV}$ and $\gamma_{16.1 \rm GeV}$ in the energy. It is evident that the flux is much lower in the energy band above GeV than that of sub-GeV, and a PL function naturally produced by those usual mechanisms (e.g. IC, SSC) could account for it. However, it should be investigated whether the gaps between $\gamma^{\rm evelope}_{\rm  sub-GeV}$ and GeV photons could be interpreted as statistical fluctuations.
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=.49\textwidth]{multi.pdf}\put(-110,170){(a) }
+\includegraphics[width=.49\textwidth]{GRB210704_alphaEp.pdf}\put(-80,160){(b) }\\
+\includegraphics[width=1.0\textwidth]%
+%{EvsT_LAT0p5_2p2.pdf}\put(-80,160){(b) }\\
+{EvsT_LAT_less12deg.pdf}\put(-80,170){(c) }\\
+%\includegraphics[width=0.5\textwidth]{Radec.pdf}\put(-190,210){(b) }
+\caption{ (a) The light curves of GBM detectors (NaI 5 and BGO 0 , upper plot) and LAT (bottom plot). The energy versus time of events with Fermi-LAT data of TRANSIENT020 (evclass=16).  (b) The modeling results with mBB (+PL), CPL and BAND function, including the evolution of $\alpha$, the peak energy of the $\nu F_{\nu}$ spectrum $E_{\rm p}$ and the parameters of mBB ($m$, $kT_{\rm max}$, $\alpha_2$).  
+ (c) : the rates range from 0.31 to 0.38, $\rho = 0.94$ with $p = 0.017$ as the blue line shows; $\rho = 0.83 $ with $p = 0.058$ when rates range from 0.75 to 0.96 as the green line shows; The red line represents $\rho = 0.71$ and $p = 0.136$ with rates ranging from 0.97 to 0.99. The orange line represents all other rates with a result of $\rho = 1.0$ with $p = 0.003$.\label{fig:observation}}
+ \end{center}
+\end{figure*} 
+
+%\subsection{contributions from Background }
+%...
+
+
+
+
+\section{Analysis on prompt high-energy emission}\label{sec:ana}
+
+In the first seconds, a gap is observed between 0.62 GeV and 1.21 GeV, as shown in Figure~\ref{fig:observation} (a) and (c); moreover, the production of GeV photons is much lower than that of sub-GeV photons, although they are reconstructed with a larger acceptance. It is natural to conclude that they could be described by a PL function. However, it is necessary to investigate whether the gaps between them could be interpreted as statistical fluctuations. 
+
+%The proposed scenarios and their possibilities are listed in Table.~\ref{tab:gapprob} 
+\subsection{The probability study}\label{sec: probstudy}
+The energy spectrum is assumed to be described by a PL function with index $p$, 
+\begin{equation}\label{func:PL}
+N_{\rm PL}(E)=A E^{-p}.
+\end{equation}
+%The probability of the gap due to the statistical fluctuation is derived as
+%\begin{equation}
+%\mathrm{Prob_{\rm gap}}= f(N^{\mathrm{mod}}_{\rm gap}, N^{\mathrm{obs}}_{\rm gap}=0),  
+%\end{equation}
+%where $f(N^{\mathrm{mod}}_{i,s}, N^{\mathrm{obs}}_{i,s}=0)$ is the probability with expected mean values of $N^{\mathrm{mod}}_{i,s}$, which are determined by modeling. A time-averaged (TA) modeling with the PL function could be performed in the duration of $10$ s from $T_0+ 0.7$s to $2.05$s, and $\mathrm{Prob_{\rm gap}}=8.5\times 10^{-4}$ is extracted for the gap between 0.62 GeV and 1.21 GeV with $p=1.65\pm0.13$.
+To perform a hypothesis testing for the PL modeling of the high energy emission, the null hypothesis is set to be that the statistical fluctuation could account for the gap of $[0.62,1.21]$ GeV; the test statistic is maximum gaps below an upper limit of $E_{\rm up}=1.21$ GeV. %, as listed below；
+%\begin{itemize}
+%    \item probabilities of the maximum gap $\mathrm{Prob_{\rm gap, max}}$;
+%    \item maximum gaps below an upper limit of $E_{\rm up}=1.21$ GeV.
+%\end{itemize}
+A Monte-Carlo (MC) simulation is performed and $1.4\times10^5$ samples of the same total number of photons are generated based on the TI spectrum of real data in $T_0+[0.70,2.05]$ s; note that the folded model with the response from the detector is used. The probability density distribution of the maximum gaps is extracted, as shown in Figure~\ref{fig:maxEobsGeV_dTin} (a) . The probability of a gap width of $\geq590$ MeV for photons below 1.21 GeV is determined to be $<10^{-3}$, thus the hypothesis that statistical fluctuation could explain the gap of $[0.62,1.21]$ GeV is rejected at a level of significance of $\alpha=0.001$, or the corresponding p-value is 0.001. 
+
+In fact, considering the smoothing effect of the TI spectrum on the gap, the p-value for the gap is overestimated in the case of TI analysis, because the gap width varies with time, and that in the TI spectrum it is the intersection of all, which is the smallest. In TR analysis, the expected number of photons in the folded model in the energy bins (with index $i$) of gaps for each slice (with index $s$) is denoted as $N^{\mathrm{mod}}_{i,s}$. The probability of the gap due to the statistical fluctuation is derived as
+\begin{equation}
+\mathrm{Prob_{\rm gap}}=\prod_s \prod_i f(N^{\mathrm{mod}}_{i,s}, N^{\mathrm{obs}}_{i,s}),   
+\end{equation}
+where $f(N^{\mathrm{mod}}_{i,s}, N^{\mathrm{obs}}_{i,s})$ is the Poisson probability with expected mean values of $N^{\mathrm{mod}}_{i,s}$, which are determined by modeling. Note that in the modeling, the energy bins, including the zero-count bins in gaps, are all used, thus $\rm Prob_{\rm gap}$ is determined conservatively. 
+
+Table~\ref{tab:gapprob} shows the results of TR analysis. 
+The index of TI modeling with an PL is fixed to that of TI modeling. The lowest level of significance is $6\times10^{-4}$, which is less than that of the TI analysis; $\rm Prob_{\rm gap}$ between GeV and sub-GeV is determined to be less than $5\times10^{-6}$, which is very small. Note that the other gaps among the GeV photons have a much larger probability of $\sim10^{-2}$, which implies that emission above the gap is not inconsistent with the hypothesis.
+
+\begin{deluxetable}{lcccccc}
+\tabletypesize{\tiny}
+%\tabletypesize{\small}
+\tablewidth{0pt}
+\tablecaption{P-values and Poisson probabilities of that the statical fluctuations of a PL function of gaps in TR analysis.\label{tab:gapprob}}
+\tablehead{ 
+\colhead{time bins (s)}
+&\colhead{[0.7, 0.9]}
+&\colhead{[0.9, 1.2]}
+&\colhead{[1.2, 1.4]}
+&\colhead{[1.4, 1.65]}
+&\colhead{[1.65, 2.05]}
+&\colhead{$\prod_s \prod_i f(N^{\mathrm{mod}}_{i,s}, N^{\mathrm{obs}}_{i,s}=0)$}\\
+\colhead{gap range (MeV) between sub-GeV and GeV}&\colhead{[2860, 550]}&\colhead{[1540, 350]}&\colhead{[1210, 410]}&\colhead{[2110, 430]}&\colhead{[4390, 620]}
+}
+\startdata
+  %index $p$ &$1.82\pm0.39$ &$1.70\pm0.18$ &$1.41\pm0.29$ &$1.60\pm0.5$ &$1.33\pm0.55$ &\\
+ %$N^{\mathrm{mod}}_{i,s}$, $f(N^{\mathrm{mod}}_{i,s},N^{\mathrm{obs}}_{i,s}= 0)$ of gap &1.16,0.315&3.29,0.037&1.16,0.313&1.5,0.224&1.23,0.292&$2.4\times10^{-4}$\\
+%$N^{\mathrm{mod}}$ and $f$ for all 0-counts above sub-GeV &1.56,0.21&4.6,0.01&2.43,0.088&2.04,0.13&1.92,0.147&$3.6\times10^{-6}$\\\hline
+ index $p$ fixed to TI results & & &$1.65\pm0.13$&&&\\
+ p-value &0.0037 &0.0006 &0.018 &0.0067 &0.0034 \\\hline
+$N^{\mathrm{mod}}_{i,s}$, $f(N^{\mathrm{mod}}_{i,s},N^{\mathrm{obs}}_{i,s}= 0)$ of gap  &2.23,0.107&4.9,0.007&1.99,0.137&1.68,0.186&1.51,0.22&$4.5\times10^{-6}$\\
+$N^{\mathrm{mod}}$ and $f$  above GeV-line &0.72,0.489&2.38,0.262&1.61,0.322&0.64,0.525&0.3,0.741&$1.6\times10^{-2}$\\\hline
+\enddata
+\end{deluxetable}
+
+
+\subsection{The possible correlation between  $\gamma^{\rm envelop}_{\rm sub-GeV}$ and $\gamma_{\rm 1-5GeV}$}\label{sec: correlation}
+
+The Spearman rank correlation coefficient ($\rho$) is used to quantify the monotonic relationship of the temporal evolution between the energy of GeV photons and that of $\gamma^{\rm envelop}_{\rm sub-GeV}$. This nonparametric approach provides a robust correlation measure that is insensitive to outliers and does not rely on linear assumptions~\citep{spearman}\footnote{The spearman rank correlation coefficient $\rho$ is defined as $\rho = \frac{\mathrm{cov}(r(x),r(y))}{\sigma_x \sigma_y} $ where $r(a)$ represents the rank of element $a$. For non-duplicated datasets, $\rho$ can be interpreted as $\rho = 1 - \frac{6 \Sigma d^2_i}{n(n^2-1)} $ where $d_i = r(x) - r(y)$.}.
+In order to ensure a consistent one-to-one correspondence between data points, the energy envelope of sub-GeV photons was extracted as follows: each time point of GeV photons is defined in a bin, and the maximum sub-GeV energy value in that bin was adopted. To reduce the impact of human choices, different bin edges are traversed in this procedure. The bin edges are determined as follows: 1) the width of the first and the last edges' include most of the GeV and sub-GeV photons (far away points are excluded); 2) the inner edges are determined to be the n-equal diversion points in time of each adjacent lined GeV points; 3) the bin-edge division ratio (rate) is tested from 0.01 to 0.99 with an increment of 0.01 (for example, a rate equal to 0.2 means left five-division point). %Since the sample is small, a permutation method is used to calculate the p-value. When the rates range from 0.31 to 0.38, $\rho = 0.94$ with $p = 0.017$ as the blue line shows; $\rho = 0.83 $ with $p = 0.058$ when rates range from 0.75 to 0.96 as the green line shows; The red line represents $\rho = 0.71$ and $p = 0.136$ with rates ranging from 0.97 to 0.99. The orange line represents all other rates with a result of $\rho = 1.0$ with $p = 0.003$. 
+
+
+As shown in Figure.~\ref{fig:observation} (c), different energy envelopes of sub-GeV photons extracted with different bin edges; $\rho$ is determined to be  $> 0.714$ according to the minimal result of all sets of bin edges, which implies a strong correlation between $\gamma^{\rm envelop}_{\rm sub-GeV}$ and $\gamma_{\rm 1-5GeV}$\footnote{The grading standards and the corresponding correlation degrees are available online:~\href{https://www.statstutor.ac.uk/resources/uploaded/spearmans.pdf}{Spearman's correlation}. }.
+
+%from liuqing
+%To quantify the temporal relationship between the GeV (red) and sub-GeV (blue) datasets (figure ...), we employed the Spearman rank correlation coefficient ($\rho$) which is used to quantify the monotonic relationship between the logarithmic energy values of the GeV and sub-GeV datasets.
+%This nonparametric approach provides a robust correlation measure that is insensitive to outliers and does not rely on linear assumptions.\ref{}
+%To ensure consistent one-to-one correspondence between data points, the sub-GeV data were binned according to the temporal sampling of the GeV dataset.
+%Each GeV time point defined a bin whose center corresponded to the GeV observation time, and the maximum sub-GeV energy value within that bin was adopted as the representative value.
+%This bin-matching procedure allowed us to evaluate the monotonic association between the two datasets.
+%Using this procedure, a Spearman rank correlation coefficient of $\rho = 0.93$ is obtained, revealing a strong positive monotonic correlation between the GeV and sub-GeV datasets.
+
+\subsection{modeling with and without gap}\label{sec: modeling}
+ The gap is statistically significant as analyzed in Section~\ref{sec: probstudy}. To further confirm this conclusion, modelings are performed with and without considering the gap in the model. However, the statistic is not large enough to extract the parameters of a specific physical model (e.g., an absorption line described by a gaussian function); moreover, the center energy and width of the gap vary with time, as shown in Fig~\ref{fig:observation} (c). Thus, the result of modeling with the gap subtracted in the bin is compared with that of all bins.
+The Markov Chain Monte Carlo (MCMC) fitting is performed to find the parameters with maximum likelihood. The Sampling tool is $emcee$~\citep{2013PASP..125..306F}. \cite{2016MNRAS.463.1144W} suggested a Bayesian information criterion (BIC$=-2\rm{ln} \mathscr{L} +\rm{ln} (N)n$, $\mathscr{L}$ denotes the likelihood
+function for all these parameters based on a Bayesian prior, $\rm N$ is the number of data points, and $\rm n$ is the number of free parameters) as a tool for model selection; a model that has a lower BIC value than the others is preferred. 
+As shown in Figure~\ref{fig:maxEobsGeV_dTin} (b), the extracted indices of PL function are similar in the modelings with and without the gap; $\Delta$BIC=5.7, the preference for the gap in the PL model is positive~\footnote{If the change of BIC between these two models, $\Delta$BIC is from 2 to 6, the preference for the model with the lower BIC is positive; if $\Delta$BIC is from 6 to 10, the preference for that is strong; and if $\Delta$BIC is above 10, the preference is very strong.}. 
+
+
+
+
+  
+
+\section{The physical interpretation}\label{sec:physical_interpretation}
+To account for the gap and correlation between $\gamma^{\rm envelop}_{\rm sub-GeV}$ and $\gamma_{\rm 1-5GeV}$, some physical interpretations could be proposed naturally: sub-GeV photons and GeV photons are not produced from the same mechanism (see the details in Section~\ref{sec: multi}); or the photons produced between $\gamma^{\rm envelop}_{\rm sub-GeV}$ and $\gamma_{\rm 1-5GeV}$, are absorbed by the resonant nuclide absorption scenario (see the details in Section~\ref{sec:absorption}). In order to distinguish between possible interpretations, an estimate of $\Gamma$ is performed in Section~\ref{sec:esti}.
+
+\subsection{The estimate of $\Gamma$ with time and the allowed maximum energies of photons}\label{sec:esti}
+ A model-dependent approach~\citep[e.g.,][]{2015ApJ...801..103G,2024ApJ...961..137S} is performed to obtain the estimate of the Lorentz Factor, as shown in Figure~\ref{fig:maxEobsGeV_dTin}. For GRB 210704A, $\Gamma$ could be estimated using the `top-down' approach~\citep{2015ApJ...801..103G,2024ApJ...961..137S}. Here, a finer binning (bin size of 0.2 s) around the peak of the fluxes is used to determine the parameters of the mBB model. The fluxes and $\Gamma$ after $T_0$+0.5 s are estimated per 0.1 s with fixed parameters from the above modeling, as shown in Fig.~\ref{fig:maxEobsGeV_dTin} (b). \footnote{With the method described in ~\cite{2024ApJ...961..137S} and $Y=1$ ($Y$ is the ratio between the total fireball energy and the energy emitted), all bins are found to be in the regime of $r_{\rm ra}\leq r_{\rm ph}\leq r_{\rm c}$, where $r_{\rm ph}$ denotes the photosphere radius,  $r_{\rm ra}$ is the rapid acceleration radius, and $r_{\rm c}$ is the coasting radius. The estimated values of $\Gamma$ have uncertainties of about 10 to 20; their central values are shown in Fig.~\ref{fig:maxEobsGeV_dTin} (b).}. $\Gamma$ reaches the maximum value ($\sim300$) around the flux peak of the MeV emissions and drops to $\sim 180$ around $T_0+1.2$ s. 
+The corresponding radius are also estimated...
+ 
+ Based on the analysis in Section~\ref{sec:obs.1}, after $T_0+1.5$ s, there may be a considerable contribution from non-thermal emission since $\alpha$ is around the synchrotron line. Due to the possible uncertainty regarding the changes in Y, $\Gamma$ $\Gamma$ can hardly be estimated and is not shown in Fig.~\ref{fig:maxEobsGeV_dTin} (b) after $T_0+1.5$s.
+ % and after around $T_0+1.5$ s, there may be considerable contribution from non-thermal emission since $\alpha$ is around the synchrotron line. Due to the low statistics and the uncertainties on the changes of Y, 
+ \begin{figure*}
+\begin{center}
+\includegraphics[width=.5\textwidth]{gapdis_hist_siglevel.pdf}\put(-80,160){(a) }
+\includegraphics[width=.5\textwidth]{Fv_PL0_GRBHEB210704.pdf}\put(-50,160){(b) }\\
+\includegraphics[width=.5\textwidth]{maxEobsGeV_dTin.pdf}\put(-100,160){(c) }
+%\includegraphics[width=.5\textwidth]{dTin_maxEobsGeV.pdf}\put(-60,165){(b) }\\
+%\includegraphics[width=0.85\textwidth]{thetaphi_LAT.pdf}\put(-100,140){(c) }
+\caption{ (a) PD and cumulative PD of gaps in photons below 1.21 GeV. (b) The modeling with and without the gap bin with PL function. (c) The allowed maximum observed GeV photons of different $\Delta t_{\rm in}$ for each time bins.\label{fig:maxEobsGeV_dTin}}
+ \end{center}
+\end{figure*} 
+
+%\subsection{ The allowed maximum energies of photons }
+  The prompt GeV emission in GRB 210704A may not be produced by a single mechanism; no matter from what mechanism they come from, the observation of GeV photons requires that the optical depth is less than 1. The optical depth for a high-energy photon with observed energy of $E_{\rm GeV, obs}$ to get converted to $e^{\pm}$ while traversing through the jet with Lorentz factor $\Gamma$ starting from a radius $R_{\gamma\gamma}$ is defined as
+\begin{equation}\label{eq:taugg}
+\tau_{\gamma\gamma}\simeq \sigma_{\gamma\gamma} n^{'}_{\gamma, >E_{\pm, \rm obs}}R_{\gamma\gamma} /\Gamma   
+\end{equation}
+ where $\sigma_{\gamma\gamma}$($=6\times10^{-26}$ cm$^{-2}$) is the cross section of $\gamma\gamma\rightarrow e^{\pm}$, and $n^{'}_{\gamma, >E_{\pm,\rm obs}}$ is the number density of the target photons in the comoving frame; the observed energy $E_{\pm, \rm obs}$ of these target photons should satisfy the following criterion (note that an on-axis observation is assumed),
+\begin{equation}\label{eq:Eobs}
+ E_{\pm, \rm obs}>\left(\frac{2\Gamma m_ec^2}{1+z}\right)^2\frac{1}{E_{\rm GeV, obs}}.  
+\end{equation}
+The distribution of photons in the MeV-energy band could be described by $f(E_{\rm obs})$ (with a normalization factor $K$ and a unit of keV$^{-1}$ cm$^{-1}$ s$^{-1}$). We have %The luminosity ($L(E_{\rm obs})$) is given by
+\begin{eqnarray}\label{eq:Eobs2}
+     4\pi d^2_{\rm L}\int_{E_{\pm,\rm obs}}^\infty Kf(E)dE =4\pi R_{\gamma\gamma}^2 c n_{\gamma, >E_{\pm,\rm obs}}(1+z),
+\end{eqnarray}
+where in the frame of the observer $n_{\gamma, >E_{\pm,\rm obs}}=2\Gamma n^{'}_{\gamma, >E_{\pm,\rm obs}}$.
+
+
+The flux of GeV emissions tracks that of the MeV emission, and most of the photons are of internal
+origin~\citep{2011MNRAS.415...77M,2012MNRAS.420..468P}. $\Delta t_{\rm in}$ of a high-energy photon with energy $E_{\rm h}$ relative to the MeV emission is determined by 
+\begin{eqnarray}\label{eq:tin}
+    \Delta t_{\rm in}=\frac{1}{1+z}\int_{R_{\rm ph}}^{R_{\gamma\gamma} (E_{\rm GeV})} \frac{dr}{2c\Gamma^2},
+\end{eqnarray}
+where $R_{\rm ph}$ is the photospheric radius of the MeV photons and $R_{\gamma\gamma} (E_{\rm h})$ is the radius of GeV emission. %In some previous works, $\Delta t_{\rm obs}$ is taken as the time delay between the high-energy photon and the peak flux or the 100 MeV trigger time. 
+For photospheric emissions, $R_{\rm ph}$ are of the order of $10^{11}$ cm, which is 3-4 orders smaller than that of $R_{\gamma\gamma}$; therefore, the estimate of $R_{\rm ph}$ cannot affect $\Delta t_{\rm in}$ much or could even be negligible.
+ With Eq~(\ref{eq:Eobs}), (\ref{eq:Eobs2}) and (\ref{eq:tin}), we could estimate the allowed maximum observed highest energy $E_{\rm GeV,obs}$ with given $\Delta t_{\rm in}$. %Note that for thermal emission, $R_{\rm ph}\sim 10^{10-11}$ cm $\ll R_{\rm \gamma\gamma}\sim10^{14-15}$ cm with given $\Delta t_{\rm in}$ of an order of 1 s.
+ Thus we have,
+ \begin{equation}\label{eq:Rgg2}
+ R_{\gamma\gamma}\simeq R_{\rm ph} +(1+z)2c\Gamma^2\Delta t_{\rm in, obs}.
+ \end{equation}
+ 
+ The allowed maximum energies ($E_{\rm GeV,obs}$) of GeV photons from MeV-$\gamma$ emission in each time bin are shown in Fig.~\ref{fig:maxEobsGeV_dTin} (b) with $\Delta t_{\rm in}=0.04$ s, 0.07 s, 0.15 s and 0.2 s. The maximum of $E_{\rm GeV, obs}$ of all time bins is found to be around the peak of the flux and $\Gamma$; a rough estimate $\tau_{\gamma\gamma}\propto \Gamma^{-4}\int_{E_{\pm,\rm obs}}^\infty Kf(E)dE$ may account for this result. 
+ $\gamma_{16.1\rm GeV}$ arrives at $T_0+ 0.96$ s and has a delay of $\sim 0.2$ s from the emission around $T_0+0.75$ s. Thus, the time of emission that allows $\gamma_{16.1}$ ranges from $T_0+$0.7 to 0.9 s (i.e., from the flux peak of the MeV emission); moreover, this is consistent well with the light curve of the high-energy emission, which traces that of the MeV prompt emission.
+
+ In addition, from $T_0+0.7$ s to $T_0+1.2$ s, the temporal evolutions of the energy envelope of the GeV photons (denoted by the red circles denoting GeV photons with red lines between them) are roughly consistent with that of the maximum energy allowed for a specific $\Delta t_{\rm in}$ (denoted by blue solid lines), as shown in Fig.~\ref{fig:maxEobsGeV_dTin} (b).
+After $T_0+1.2$ s, the energy of GeV photons increases with time. This could be interpreted as $\Delta t_{\rm in}$ of these emissions is larger than those before $T_0+1.2$ s. Another probability is that $\Gamma$ increases slightly. % underestimated due to the contribution of non-thermal emission .
+
+
+
+%Dec 19 added, alternative analysis, results for Time-integrated 0-1.5s 
+With the `top-down’ approach, $\Gamma$ ranges from 176 to 277 taking into account one standard deviation of the estimate of $z$, while the central value of $z=0.27$ corresponds to $\Gamma\sim 220$. Note that this estimate is performed with the time-integrated spectrum of $T_0+[0, 1.5]$ s and $Y=1$; the data after $T_0+1.5$ s are not used, because the uncertainty of $Y$ can hardly be estimated due to the low statistic and the contribution from the non-thermal emissions. 
+
+
+
+With Eqs~(\ref{eq:taugg})-(\ref{eq:Rgg2}), the lower limit of $\Gamma$ is determined to be $156^{+24}_{-23}$ by the photon of the highest energy, $\gamma_{16.1\rm GeV}$; the uncertainties are mainly from the estimate of $z$.
+
+
+
+
+
+\subsection{The multi-component emission mechanism}\label{sec: multi}
+ If the discrete GeV photons are due to another mechanism that differs from that of sub-GeV photons, the evolution of $\Gamma$ may account for the correlation between $\gamma^{\rm envelop}_{\rm sub-GeV}$ and $\gamma_{\rm 1-5GeV}$, since the energies of $\gamma^{\rm envelop}_{\rm sub-GeV}$ and $\gamma_{\rm 1-5GeV}$ are both boosted with the same Lorentz Factor. 
+
+ 
+ One possibility is that the GeV and sub-GeV photons are from a two-component jet, which has an inner-constant and outer-decreasing angular baryon loading parameter profile~\citep{2001Gamma,10.1046/j.1365-8711.2002.05363.x, 2002Gamma,2003THE}. %However, it is difficult to explain why the flux of GeV photons (corresponding to the core and large $\Gamma$) is much smaller than that of sub-GeV ones. 
+ %In addition,
+ However, these large gaps, including those between $\gamma^{\rm envelop}_{\rm sub-GeV}$ and $\gamma_{\rm 1-5GeV}$, as well as those between $\gamma_{\rm 1-5GeV}$ and more energetic photons ($\gtrsim 8$ GeV) cannot be easily explained by a two-component jet model.
+  
+Another possibility is that the GeV photons may be re-scattered photons in IC mechanisms. 
+In the Thompson regime, one has
+\begin{equation}
+E_{\rm IC, obs}\simeq\Gamma\gamma'^{2}_e E'_{\rm seed}/(1+z),    
+\end{equation}
+ where the energy ratio of re-scattered photons to sub-GeV ones that are only scattered once is $\gamma_e^{'2}$; $\gamma_e^{'2}$ is estimated to be about 5 from the observation of (2.86 GeV, 0.55 GeV) and (1.21, 0.25) GeV. However, for the production of sub-GeV photons, $E'_{\rm seed }\sim 300$ keV is too energetic for seed photons in the comoving frame. Thus, multi-scattering in the Thompson regime can hardly explain the difference between $\gamma^{\rm envelop}_{\rm sub-GeV}$ and $\gamma_{\rm 1-5GeV}$.
+If GeV photons are produced by re-scattering in the Klein-Nishina regime, one has 
+\begin{equation}
+  E_{\rm IC, obs}\simeq\gamma_e m_e c^2.
+\end{equation}
+ The ratio of GeV to sub-GeV photons is $m_e c^2/\gamma_e'E_{\rm seed}'$, which cannot follow the evolution of $\Gamma$; there seems to be no additional mechanism to explain the correlation. 
+
+\iffalse
+\subsection{The multi-component emission mechanisms}
+
+%4.2 Multi-Component Emission Mechanisms
+Multi-component emission mechanisms—where sub-GeV and GeV photons originate from distinct but physically coupled radiating components in the GRB outflow—are proposed to explain the tight temporal correlation of energy envelopes observed in GRB 210704A. A key constraint for such models is that the two components must share a common regulatory physical parameter (e.g., global evolution of the jet Lorentz factor $\Gamma$) to ensure synchronized energy evolution. Below, we evaluate two candidate multi-component scenarios, focusing on quantitative consistency with GRB 210704A’s observational data (e.g., energy ratio of GeV to sub-GeV photons, flux disparity, and spectral gaps).
+
+%4.2.1 Two-Component Jet with Angular Baryon Loading Gradient
+\subsubsection{Two-Component Jet with Angular Baryon Loading Gradient}
+
+A natural multi-component scenario invokes a jet with angular variation in baryon loading ($\eta_b$), defined as the ratio of baryonic mass to radiative energy density. Baryon loading is inversely related to the jet’s Lorentz factor ($\Gamma \propto \eta_b^{-1/2}$)  \citep{2001ApJ...552L..35M,2002MNRAS.332..265J}: a “core-halo” structure emerges, where the jet axis (small polar angle $\theta_j$) has low $\eta_b$ and high $\Gamma$ (core component), while the off-axis region (large $\theta_j$) has high $\eta_b$ and low $\Gamma$ (halo component). This angular dependence is typically parameterized as $\Gamma(\theta_j) \propto \theta_j^{-p}$, where $p$ is a positive power-law index  \citep{2003ApJ...595..990R}.
+
+For GRB 210704A, this scenario associates the high-$\Gamma$ core with GeV emission (via more efficient particle acceleration) and the low-$\Gamma$ halo with sub-GeV emission. The shared angular dependence of $\Gamma$ across both components naturally explains the synchronized temporal evolution of energy envelopes: as the jet expands, the global baryon loading profile evolves monotonically, causing $\Gamma$ to decrease for both core and halo components—translating to correlated shifts in the peak energies of GeV and sub-GeV emission.
+
+However, this scenario faces a critical inconsistency with GRB 210704A’s flux observations: the GeV flux (core component) is measured to be ~5–10 times lower than the sub-GeV flux (halo component), which contradicts the expected flux distribution of a baryon-loaded jet. In canonical core-halo models, the high-$\Gamma$ core is collimated but has higher energy density, leading to comparable or higher flux than the extended halo  \citep{2002MNRAS.332..265J}. Resolving this discrepancy would require the core to have an extremely small emitting volume (far smaller than predicted by jet collimation models) or an anomalously low particle acceleration efficiency—assumptions with no observational or theoretical support. Additionally, this scenario cannot explain the discrete spectral gaps: both core and halo components produce continuous spectra (e.g., synchrotron or SSC), which cannot replicate the sharp, non-continuous gaps observed in the data.
+
+%4.2.2 Inverse Compton (IC) Scattering with Multi-Component Seed Photons
+\subsubsection{Inverse Compton (IC) Scattering with Multi-Component Seed Photons}
+
+A second multi-component scenario attributes GeV emission to IC scattering of sub-GeV seed photons by relativistic electrons, with sub-GeV photons originating from a primary mechanism (e.g., synchrotron radiation). This model links GeV and sub-GeV emission via shared seed photons and electron populations, potentially explaining their correlated evolution. We evaluate two IC regimes—Thomson (non-relativistic scattering) and Klein-Nishina (relativistic scattering)—against GRB 210704A’s data.
+
+%\noindent {\bf Thomson Regime (Single or Multi-Scattering)}
+
+In the Thomson regime, the observed IC photon energy is given by:  
+\begin{equation}  E_{\rm IC, obs} \simeq \frac{\Gamma \gamma_e'^2 E_{\rm seed}'}{1+z},  \tag{1}  \end{equation}
+where $\Gamma$ is the jet Lorentz factor, $\gamma_e'$ is the electron Lorentz factor in the comoving frame, $E_{\rm seed}'$ is the seed photon energy in the comoving frame, and $z \approx 0.6$ is GRB 210704A’s redshift  \citep{2022MNRAS.511.4345X}. For sub-GeV photons to be the seed population, we use the observed energy pairs (2.86 GeV, 0.55 GeV) and (1.21 GeV, 0.25 GeV) to infer $\gamma_e'$: the ratio $E_{\rm IC, obs}/E_{\rm sub-GeV, obs} \approx \gamma_e'^2$, yielding $\gamma_e' \approx \sqrt{5} \approx 2.2$ (consistent across both pairs).
+
+Substituting $\gamma_e' \approx 2.2$, $E_{\rm sub-GeV, obs} \approx 0.55$ GeV, and $\Gamma \approx 100–300$ (typical for LGRB prompts  \citep{2010MNRAS.407.1033B}) into Eq. (1), we solve for the comoving seed photon energy: $E_{\rm seed}' \simeq \frac{E_{\rm sub-GeV, obs}(1+z)}{\Gamma} \approx 3–9$ keV. However, the primary mechanism producing sub-GeV photons would require $E_{\rm seed}' \approx 300$ keV (to reach 0.55 GeV after Doppler boosting), which is an order of magnitude higher than the seed energy implied by the IC scenario. Multi-scattering in the Thomson regime cannot resolve this contradiction: each additional scattering increases the photon energy by a factor of $\gamma_e'^2$, but starting from a 3–9 keV seed would require 3–4 scatterings to reach 0.55 GeV—leading to a broad, featureless spectrum that conflicts with the discrete gaps observed.
+
+%\noindent {\bf Klein-Nishina (KN) Regime}
+
+In the Klein-Nishina (KN) regime (relevant when $E_{\rm seed}' \gamma_e' \gtrsim m_e c^2$, where $m_e c^2 \approx 511$ keV is the electron rest mass energy), the IC photon energy saturates at the electron’s relativistic energy  \citep{2008FrPhC...3..306F}:  
+\begin{equation}  E_{\rm IC, obs} \simeq \Gamma \gamma_e' m_e c^2.  \tag{2}  \end{equation}
+
+For GRB 210704A’s GeV emission ($E_{\rm IC, obs} \approx 2.86$ GeV), this implies $\gamma_e' \approx \frac{E_{\rm IC, obs}}{\Gamma m_e c^2} \approx 5–15$ (for $\Gamma = 100–300$). The ratio of GeV to sub-GeV energies is then $E_{\rm IC, obs}/E_{\rm sub-GeV, obs} \simeq \frac{\Gamma \gamma_e' m_e c^2}{E_{\rm sub-GeV, obs}}$. For this ratio to evolve synchronously with $\Gamma$ (as required by the observed energy envelope correlation), $E_{\rm sub-GeV, obs}$ must be proportional to $\Gamma^2$—a prediction not supported by the data. GRB 210704A’s sub-GeV energy envelope evolves linearly with GeV emission, not quadratically. Additionally, the KN regime produces a smooth, exponentially cut-off spectrum  \citep{2008FrPhC...3..306F}, which cannot explain the discrete spectral gaps.
+
+%4.2.3 Summary of Multi-Component Scenarios
+\subsubsection{Summary of Multi-Component Scenarios}
+
+Multi-component emission mechanisms successfully explain the tight temporal correlation of energy envelopes in GRB 210704A via shared physical parameters (e.g., $\Gamma$ evolution for two-component jets, shared electron/seed populations for IC scattering). However, both candidate scenarios fail to reconcile with key observational constraints: (1) the two-component jet model cannot explain the low GeV flux relative to sub-GeV emission; (2) IC scattering (Thomson or KN regime) conflicts with seed photon energy requirements or predicted spectral shapes; and (3) neither scenario addresses the discrete spectral gaps—the most unique feature of GRB 210704A’s high-energy emission. These limitations suggest that multi-component mechanisms alone are insufficient to explain all observed anomalies, and a hybrid scenario (e.g., multi-component emission combined with resonant nuclide absorption) may be necessary.
+\fi
+
+
+ 
+ 
+\iffalse
+Resonant nuclide absorption—where high-energy photons are selectively absorbed by atomic nuclei at discrete energy levels matching the nuclear resonance condition—emerges as a physically motivated candidate to explain the discrete spectral gaps observed in GRB 210704A’s prompt emission (100 MeV–10 GeV). This mechanism leverages well-established nuclear physics: each nuclide (e.g., Fe-group isotopes, Ni, Cr) exhibits unique resonant absorption energies in its rest frame, determined by the difference between nuclear excited states and the ground state  \citep{2006ApJ...642L.137R,2015ApJ...809..136K}. For GRB outflows, the relativistic Lorentz factor ($\Gamma$) of the jet introduces a Doppler shift to these rest-frame energies, translating them into the observed sub-GeV/GeV regime—directly linking nuclear properties to the observed spectral gaps.
+
+A critical strength of this scenario is its ability to simultaneously explain two key observational features of GRB 210704A: 
+
+1. Discrete spectral gaps: The resonance condition imposes strict energy selectivity—only photons with energies matching the Doppler-shifted nuclear resonance levels are absorbed, creating non-continuous gaps in the observed spectrum. Unlike canonical leptonic/hadronic mechanisms (e.g., synchrotron, inverse Compton) that produce continuous spectra  \citep{2008FrPhC...3..306F}, resonant absorption naturally generates sharp, discrete spectral structures. For GRB 210704A, the multiple gaps observed across sub-GeV and GeV bands imply absorption by a mix of nuclides (or multiple resonance levels of a single nuclide) in the outflow.
+
+2. Temporal correlation of gap center energies: The observed synchronized temporal evolution of gap center energies in sub-GeV and GeV bands is explained by the global evolution of the jet’s Lorentz factor ($\Gamma$). As the relativistic outflow expands, $\Gamma$ decreases monotonically over the prompt phase  \citep{2011MNRAS.412..522B}; this single global parameter governs the Doppler shift of all nuclear resonance energies (via $E_{\text{obs}} = (1+z)\Gamma E_{\text{rest}}$, where $z$ is the GRB redshift and $E_{\text{rest}}$ is the rest-frame resonance energy). Thus, gaps from different nuclides (or resonance levels) shift in concert with $\Gamma$, producing the tight temporal correlation between sub-GeV and GeV energy envelopes observed in the data.
+
+The consistency between this scenario and observations is further supported by quantitative constraints on the rest-frame resonance energies. Using the Doppler shift relation and the observed gap energies (150 MeV–8 GeV, from Section \ref{sec:ana}), we infer the rest-frame absorption energies by assuming plausible values for $\Gamma$ and $z$: 
+
+- GRB 210704A’s redshift is measured as $z \approx 0.6$  \citep{2022MNRAS.511.4345X}, a typical value for LGRBs.
+
+- The jet Lorentz factor during the prompt phase is constrained to $\Gamma \approx 100–300$ by the absence of photon-photon pair production suppression  \citep{2010MNRAS.407.1033B}.
+
+Substituting these into $E_{\text{rest}} = E_{\text{obs}} / [(1+z)\Gamma]$, the inferred rest-frame resonance energies range from ~4 MeV to ~7 MeV. This range aligns with known resonant absorption levels of Fe-group nuclides (e.g., Fe at 6.4 MeV, Cr at 5.2 MeV)  \citep{2006ApJ...642L.137R,2024ApJ...968L...5W}—a critical consistency check that links the scenario to laboratory-measured nuclear properties.
+
+Notably, this scenario also accommodates the coexistence of sub-GeV and GeV photons from different emission mechanisms (e.g., synchrotron for sub-GeV, inverse Compton for GeV). As long as all photons propagate through the same relativistic outflow (shared $\Gamma$), their absorption by the same nuclear population will imprint synchronized gap structures—consistent with the observation that gaps in both bands follow the same temporal trend.
+
+Key caveats to this scenario warrant discussion: (1) The outflow must contain sufficient abundances of Fe-group nuclides to produce measurable absorption gaps, which is plausible given that LGRB progenitors (massive stars) enrich their surroundings with heavy elements via stellar winds  \citep{2019LRR....23....1M}; (2) Relativistic Doppler broadening could smear absorption lines, but the observed sharp gaps imply the outflow’s velocity dispersion is small compared to $\Gamma$ (i.e., a “cold” jet), which is consistent with some LGRB jet models  \citep{2015ApJ...809..136K}.
+\fi
+
+%\subsection{Multi-Component Emission Mechanisms}%by Mabq
+%\label{sec:multi-component}
+
+%Multi-component emission mechanisms represent a plausible approach to explain the tight temporal correlation of sub-GeV and GeV energy envelopes in GRB 210704A, relying on physically coupled radiating components sharing a common regulatory parameter (e.g., the jet's Lorentz factor $\Gamma$) \citep{2002MNRAS.332..265J,2008FrPhC...3..306F}. One candidate variant invokes a two-component jet with angular baryon loading gradients, where a high-$\Gamma$ core (linked to GeV emission) and low-$\Gamma$ halo (sub-GeV emission) exhibit synchronized energy evolution via shared $\Gamma$ decay. Another possibility involves inverse Compton (IC) scattering, where GeV photons arise from upscattered sub-GeV seed photons, with the two bands correlated through common relativistic electron populations and seed photon fields. While these mechanisms offer a coherent framework for the observed temporal correlation, their ability to fully reconcile with other key features (e.g., discrete spectral gaps) requires further observational and theoretical validation.
+
+\subsection{The Resonant Nuclide Absorption Scenario and Other Potential Absorption Mechanism}
+\label{sec:resonant-nuclide-absorption}\label{sec:absorption}
+
+Applying the Doppler correction $E_{\rm rest} \approx E_{\rm obs} (1+z) / 2\Gamma$, where $z \simeq 0.27$ is the redshift derived from the Amati relation and jet modeling \cite{2023MNRAS.522.5204B}, the observed gap of $0.6-1.2$ GeV translates to a comoving energy range of:
+\begin{equation}
+E_{\rm gap}^{\prime} \approx 2 - 5 \text{ MeV},
+\end{equation}
+where the lower (upper) limit corresponds to 0.62 (1.21) GeV and $\Gamma\simeq 220$; Taking into account the robust and model-independent lower limit of $\Gamma\sim 160$ determined by $\gamma_{16.1 \rm GeV}$ and the maximum upper limit of the gap (2.86 GeV), $E_{\rm gap}^{\prime}$ cannot exceed 10 MeV. 
+
+%A PL (or multi-energy-band PL) function with a nuclide absorption line could naturally explain the gaps and correlation between $\gamma^{\rm envelop}_{\rm sub-GeV}$ and $\gamma_{\rm 1-5GeV}$ without any additional mechanism or condition. 
+
+%Taking into account the estimate of $\Gamma$ and the energy of gaps, The possible energy of the absorption line ranges from 4 MeV to 7 MeV in the comoving frame of the outflow. This aligns with laboratory-measured resonance levels of Fe-group nuclides (e.g. $^{56}\text{Fe}$, $^{52}\text{Cr}$)~\footnote{see the details on the web page of \href{https://www-nds.iaea.org/relnsd/vcharthtml/VChartHTML.html\#lastnuc=56Fe}{energy levels of nuclides}}. However, because of the large width of the gap, it is difficult to accurately identify the specific element. 
+
+%---
+%As shown in \cite{2020NDS...163..109K}, almost all the photonuclear absorption peaks are at $\sim$ 20 MeV; the only exception is for $^2$H, which is around 4 MeV, as given by the 1999 IAEA Photonuclear Data Library (IAEA/PD-1999)~\footnote{\href{https://www-nds.iaea.org/photonuclear/photonuclear99/}{https://www-nds.iaea.org/photonuclear/photonuclear99/}}
+%Moreover, from the point of view of the r-process, $^2$H is the only possible nucleus that can be formed in a short period, which should be on the order of milliseconds. Other elements all need the $\beta$ decay to form, while the $\beta$ decay takes time on the order of minutes. 
+
+%Resonant nuclide absorption is a physically plausible mechanism to explain key observational features of GRB 210704A, grounded in established nuclear physics and tight alignment with the data \citep{2006ApJ...642L.137R,2015ApJ...809..136K}. This scenario posits that high-energy photons are selectively absorbed by nuclei in the relativistic jet at discrete energies matching Doppler-shifted nuclear resonance levels, naturally producing the observed discrete spectral gaps—an effect distinct from the continuous spectra of leptonic/hadronic emission mechanisms. It further accounts for the synchronized temporal evolution of gap center energies, as the jet’s global Lorentz factor ($\Gamma$) governs the Doppler shift of all nuclear resonance energies (via $E_{\text{obs}} = (1+z)\Gamma E_{\text{rest}}$), leading to coordinated shifts across sub-GeV and GeV bands.
+
+
+
+ %\citep{2006ApJ...642L.137R,2024ApJ...968L...5W}.
+
+%Quantitative consistency is reinforced by inferred rest-frame resonance energies (~4–7 MeV) from observed gap energies (150 MeV–8 GeV) and plausible $\Gamma$ values (100–300), which align with laboratory-measured resonance levels of Fe-group nuclides (e.g., $^{56}\text{Fe}$, $^{52}\text{Cr}$) \citep{2006ApJ...642L.137R,2024ApJ...968L...5W}. The presence of such nuclides in GRB outflows is physically viable, as LGRB progenitors (massive stars) enrich their surroundings with heavy elements via stellar winds \citep{2019LRR....23....1M}, further supporting the scenario’s feasibility.
+
+%\subsection{Other Potential Absorption Mechanisms}
+%No alternative absorption mechanisms can simultaneously explain GRB 210704A’s discrete spectral gaps and synchronized gap evolution. Plasma absorption (via Langmuir oscillations) produces continuous spectral cutoffs or broad absorption bands, not sharp discrete gaps, with absorption energies tied to local plasma density—unable to drive coordinated gap evolution across sub-GeV/GeV bands \citep{2008FrPhC...3..306F}. Compton absorption (photon scattering by free electrons) causes smooth, energy-dependent attenuation rather than discrete features, as its efficiency scales continuously with photon energy \citep{2015ApJ...809..136K}. 
+
+%Photon-photon pair production ($\gamma+\gamma \to 
+%e^+ + e^-$) induces continuous high-energy cutoffs, not discrete gaps, and its energy threshold depends on local photon density—incapable of replicating the synchronized temporal trend of gap centers \citep{2010MNRAS.407.1033B}. Dust absorption, irrelevant to GRB outflows (hot, ionized environments preclude dust survival), only causes broadband extinction, not sharp energy-selective gaps \citep{2019LRR....23....1M}. All alternative mechanisms fail to satisfy both core observational constraints, suggesting resonant nuclide absorption as a viable explanation.
+
+%Discussion & Summary
+
+We propose that the gap arises from the resonant absorption of photons by nuclei entrained in the jet. The comoving energy of $\sim 4$ MeV aligns remarkably well with the photodissociation threshold of deuterium:
+\begin{equation}
+\gamma + {^2\text{H}} \rightarrow p + n.
+\end{equation}
+The binding energy of deuterium is 2.22 MeV. However, the cross-section for photodissociation peaks slightly above the threshold, typically around $4-5$ MeV \citep{IAEA2000}, which perfectly matches our derived comoving energy $E_{\rm gap}^{\prime}$.
+
+Crucially, this energy scale distinguishes deuterium from all other potential nuclear absorbers. Heavier nuclides, particularly the Fe-group elements often invoked in supernova models, interact with photons primarily through the Giant Dipole Resonance (GDR). The GDR peak energy for nuclei with mass number $A$ is approximately $E_{\rm GDR} \approx 31.2 A^{-1/3} + 20.6 A^{-1/6}$ MeV \citep{1975RvMP...47..713B}, which places the resonance at $15-25$ MeV for heavy elements (e.g., $^{56}$Fe) \citep{2020NuDS..163..109K}. Such an absorption would manifest at observed energies $>3$ GeV, far above the gap detected in GRB 210704A. The unique low-energy threshold of deuterium makes it the only viable candidate for an absorption feature at $\sim 4$ MeV.
+
+\textit{Timescales and Nucleosynthesis.}---The identification of deuterium is further supported by the dynamical timescales of the GRB jet. The prompt emission occurs at a radius $R \sim 10^{13}-10^{14}$ cm. %ref
+The dynamical time in the comoving frame is extremely short, on the order of hundreds of seconds:
+\begin{equation}
+t'_{\rm dyn} \approx 2\Gamma t_{\rm obs} \sim 300 \text{ s},
+\end{equation}
+where $t_{\rm obs} \sim 1 \text{s}$ is the time in the observer's frame.
+In a neutron-rich outflow ejected from a merger, nucleosynthesis begins with the rapid capture of neutrons by protons ($p + n \rightarrow {^2\text{H}}$). To form heavier r-process elements (up to Lanthanides), the chain must proceed through seed nuclei creation. However, the formation of seeds heavier than deuterium is rate-limited by weak interactions ($\beta$-decays), which typically require timescales of seconds to minutes to proceed significantly.
+
+Given the relativistic expansion, the jet material is ``frozen out" before significant quantities of heavy elements can form via $\beta$-decay. Consequently, the jet composition at the photospheric radius is expected to be dominated by nucleons and light isotopes, specifically deuterium, rather than heavy metals. This kinetic constraint robustly excludes Fe-group elements and reinforces the deuterium interpretation.
+
+
+
+As another candidate absorption mechanism, to generate an observed absorption with a center energy of $\sim1$ GeV, photon-photon pair production ($\gamma+\gamma \to 
+e^+ + e^-$) requires a much larger Lorentz Factor, e.g. $\Gamma\gtrsim 1000$ than the estimate. Therefore, it is unlikely unless there exists sufficient evidence for an extremely large Lorentz Factor. 
+
+
+\section{discussion and summary }\label{sec:discussion}
+
+The detection of a deuterium absorption line implies significant baryon loading in the jet, specifically of neutron-rich matter; a high-entropy
+winds and fireballs associated with GRBs are proposed to be a source of light-element synthesis~\citep[e.g.][]{1967ARA&A...5..525F,2001ApJ...561..957P,2000ApJ...533..424O,2001ApJ...562..887T,2002ApJ...580..368P}. The comoving density of the baryons can be expressed in terms of the isotropic luminosity of matter($L_{\rm m}$) is 
+\begin{equation}
+   n^{\prime}_{b}=\frac{L_{\rm m}}{4\pi r^2 (\frac{W_{\rm shell}}{t_{\rm dur}}) m_b c^2 \eta\Gamma}, 
+\end{equation}
+where $W_{\rm shell}\sim r/\Gamma^2$ is the width of the shell of outflow in time of $t_{\rm dur}$ in the lab frame; the dimensionless entropy is $\eta=L/\dot{M}c^2$ ($\dot{M}$ is the mass rate of baryon loading). The baryons is mainly composed of protons after neutron-proton decoupling. %$L_{m}=L/(1+\sigma_0)$ and $\sigma_0$ is the magnetization factor $\sigma_0$ is the ratio of Poynting flux luminosity to the matter flux; the dimensionless entropy is $\eta=L/\dot{M}c^2$ ($\dot{M}$ is the mass rate of baryon loading). 
+%From the beginning at $r=r_0$ where the jet is launching, neutrons could enter the outflow and be loaded by the nuclear collision, until the outflow is fast enough and $np$ collision time scale%,$t'_{np}\approx1/(n'_p\sigma_{np}c)$,
+%begins to be larger than the dynamical time scale. %$t'_{\rm dyn}\approx r/(\Gamma c)$. 
+% $L_{m}$ is compatible with $L_{\gamma}\sim 10^{52}$ erg s$^{-1}$.
+The total luminosity $L$ could be estimated by the radiative $L_{\gamma}$ by the radiative efficiency ($\epsilon$); For GRB 210704A, it is reasonable that $\epsilon$ ranges from tens of percents to nearly a half, since the MeV prompt emission begins from photospheric emission lasting 1.5 s and ends with non-thermal emission~\citep[e.g.,][]{2011ApJ...726...90Z}; thus we assume that $L_{\rm m}$ is compatible with $L_{\gamma}\sim 10^{51}$ erg s$^{-1}$. 
+
+The final mass fraction of deuterium ($Y_{\rm D}$) can be greater than a few percent or even as large as $10\%$ in the case of np-decoupling occurring before it reaches at $R_{\gamma\gamma}$~\citep[e.g.,][]{2002ApJ...580..368P}. The density of $n'_{\rm D}$ at $R_{\gamma\gamma}$ is estimated to be:
+\begin{equation}
+   n^{\prime}_{\rm D}\sim n^{\prime}_{p} Y_{\rm D}.
+\end{equation}
+
+Note that the estimated $\Gamma\sim220$ is higher than the lower limit of $\gamma_{16.1\rm GeV}$; this means that delay time $\Delta t$ of the GeV photons relative to MeV photons could be as small as $10^{-5}$ s; by Eq~(\ref{eq:Rgg2}), one has $R_{\gamma\gamma}\gtrsim R_{\rm ph}\sim10^{11}$ cm.
+
+Given $L_{\rm m}\sim 10^{51}$ erg s$^{-1}$ and e.g., $R_{\gamma\gamma}=5\times10^{11}$ cm, 
+$n^{\prime}_{\rm D}(r=R_{\gamma\gamma})\sim10^{17}$ cm$^{-3}$, $\tau_{\gamma D}\gtrsim1$, using the cross-section $\sigma_{\gamma D} \sim 2 \times 10^{-27}$ cm$^2$. Therefore, the baryon loading of GRB 210704A is enough for the resonant photodissociation of $\rm ^2H$.
+
+
+
+
+
+
+
+
+
+
+
+
+%, we can estimate the column density required to produce an optical depth $\tau \gtrsim 1$ in the gap. This density is consistent with a magnetically dominated wind driven by a hyper-accreting black hole or a proto-neutron star, the central engine formed after a merger.
+
+Previous studies of GRB 210704A noted its peculiar properties and suggested a compact object merger origin, despite its duration lying in the intermediate range \citep{2021GCN.30380....1M, 2023MNRAS.522.5204B}. Our finding provides a completely independent confirmation of this progenitor channel. Unlike kilonovae, which probe the sub-relativistic ejecta days after the event, this spectral feature probes the relativistic jet itself seconds after launch, revealing the initial chemical composition of the r-process flow.
+
+\textit{Conclusion.}---We have identified a statistically significant spectral gap in the prompt emission of GRB 210704A. Interpreting this as resonant absorption by deuterium nuclei in a jet with $\Gamma \sim 300$, we find a consistent physical picture that links the burst to a neutron-rich progenitor. This represents the first direct spectroscopic detection of r-process nucleosynthesis ingredients in the prompt gamma-ray phase, opening a new window to study nuclear astrophysics in extreme environments.
+
+%In this \textit{letter}, 
+
+
+
+
+
+%This work presents three statistically robust phenomenological features of the prompt high-energy emission (100 MeV–10 GeV) from GRB 210704A, focusing exclusively on data-driven observations to provide a model-independent benchmark for future GRB research. Below, we contextualize these findings within existing GRB literature, validate their reliability, and outline limitations and future research directions, followed by a concise summary of core results.
+
+% the key points (1, 2, 3) in introduction should be here
+
+% from Mabq We present three statistically robust, unprecedented phenomenological features of GRB 210704A’s prompt high-energy emission (100 MeV–10 GeV): (1) discrete spectral gaps that cannot be attributed to statistical fluctuations; (2) a tight linear temporal correlation between the energy envelopes of sub-GeV and GeV emission, distinct from canonical high-energy delays; and (3) coordinated energy-dependent evolution of sub-GeV and GeV bands across the entire prompt phase. These features distinguish GRB 210704A from canonical GRBs and fill critical gaps in high-energy GRB observational data.
+
+% from Mabq The core contribution of this work is a rigorous, model-independent observational benchmark that constrains the diversity of GRB prompt emission behaviors. By documenting these unique features, we provide a foundation for future studies—both observational (e.g., identifying similar GRBs) and theoretical (e.g., developing models consistent with the observed patterns)—to advance our understanding of extreme astrophysical transients.
+ 
+%TC:ignore
+%\iffalse
+\begin{acknowledgements}
+ The author thanks the support of the National Natural Science Foundation of China (grant No. 12303052). The author is very grateful for the public GRB data from Fermi/GBM and Fermi/LAT.
+ %The author is very grateful to the suggestions and comments from Prof. Shuang-Nan Zhang. I thank Prof. Shuang-shi Fang for polishing the language in some paragraphs.
+ %X.Y. Song is very grateful for the comments and suggestions from the anonymous referees and suggestions from Prof. Kin-Wang Ng on the combustion from NS to QS.
+\end{acknowledgements}
+%\fi
+%\clearpage
+
+%\clearpage
+%TC:endignore
+\bibliography{LIV}
+\bibliographystyle{aasjournal}
+
+\end{document}
+
+% End of file `sample631.tex'.

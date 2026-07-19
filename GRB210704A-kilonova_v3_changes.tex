@@ -1,4 +1,7 @@
 \documentclass[prd,twocolumn,amsmath,amssymb,aps,linenumbers]{revtex4-2} %nofootinbib
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL /tmp/claude-0/-home-user-test2/7724e9cd-34cf-56f9-a3cf-5f59e0dcf7ba/scratchpad/v3_orig.tex   Sun Jul 19 02:01:32 2026
+%DIF ADD GRB210704A-kilonova_v3_songxy.tex                                                            Sun Jul 19 02:08:56 2026
 %\documentclass[aps,prl,twocolumn,superscriptaddress,showpacs,preprintnumbers,amsmath,amssymb,linenumbers]{revtex4-2}
 % \documentclass[aps,prl,nofootinbib,preprintnumbers,amsmath,amssymb,latexsym,array,enumerate,letter,twocolumn,superscriptaddress]{revtex4}\documentclass[10pt,prd,preprintnumbers,floatfix,aps,nofootinbib,showpacs,twocolumn,superscriptaddress,noshowpacs]{revtex4-2} %twocolumn, notitlepage,
 %superscriptaddress or unsortedaddress %to keep alphabetical order
@@ -174,6 +177,87 @@
 			\setbox0\hbox{$I$}%
 			\rlap{\hbox to \wd0{\hss--\hss}}\box0
 		}}
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF CFONT PREAMBLE %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue} \sf #1}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red} \scriptsize #1}} %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+\begin{picture}(1,1)% %DIF PREAMBLE
+\thicklines\linethickness{2pt} %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+\end{picture}% %DIF PREAMBLE
+}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF COLORLISTINGS PREAMBLE %DIF PREAMBLE
+\RequirePackage{listings} %DIF PREAMBLE
+\RequirePackage{color} %DIF PREAMBLE
+\lstdefinelanguage{DIFcode}{ %DIF PREAMBLE
+%DIF DIFCODE_CFONT %DIF PREAMBLE
+  moredelim=[il][\color{red}\scriptsize]{\%DIF\ <\ }, %DIF PREAMBLE
+  moredelim=[il][\color{blue}\sffamily]{\%DIF\ >\ } %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstdefinestyle{DIFverbatimstyle}{ %DIF PREAMBLE
+	language=DIFcode, %DIF PREAMBLE
+	basicstyle=\ttfamily, %DIF PREAMBLE
+	columns=fullflexible, %DIF PREAMBLE
+	keepspaces=true %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim}{\lstset{style=DIFverbatimstyle}}{} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim*}{\lstset{style=DIFverbatimstyle,showspaces=true}}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
 
 \begin{document}
 
@@ -204,29 +288,37 @@
 %\affiliation{School of Physics, Zhengzhou University, 450001, Zhengzhou, China;}
 %\affiliation{ School of Physics, Peking University, 100871, Beijing, China.}
 
-\affiliation{$^{1}$School of Physics, Huazhong University of Science and Technology, Luoyu Road, Wuhan, 430074, Hubei, China.}
-\affiliation{$^{2}$University of Chinese Academy of Sciences, Chinese Academy of Sciences, Beijing 100049, China}
-\affiliation{$^{3}$Key Laboratory of Particle Astrophysics, Institute of High Energy Physics, Chinese Academy of Sciences, Beijing 100049, China}
-\affiliation{$^4$ School of Physics, Peking University, 100871, Beijing, China}
+\DIFdelbegin %DIFDELCMD < \affiliation{$^{1}$School of Physics, Huazhong University of Science and Technology, Luoyu road, Wuhan, 430074, Hubei, China.}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \affiliation{$^{1}$School of Physics, Huazhong University of Science and Technology, Luoyu Road, Wuhan, 430074, Hubei, China.}
+\DIFaddend \affiliation{$^{2}$University of Chinese Academy of Sciences, Chinese Academy of Sciences, Beijing 100049, China}
+\DIFdelbegin %DIFDELCMD < \affiliation{$^{3}$Key Laboratory of Particle Astrophysics, Institute of high-energy Physics, Chinese Academy of Sciences, Beijing 100049, China}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \affiliation{$^{3}$Key Laboratory of Particle Astrophysics, Institute of High Energy Physics, Chinese Academy of Sciences, Beijing 100049, China}
+\DIFaddend \affiliation{$^4$ School of Physics, Peking University, 100871, Beijing, China}
 \affiliation{$^5$ School of Physics, Zhengzhou University, 450001, Zhengzhou, China;}
 
 \date{\today}
 
 \begin{abstract}
 %Neutron star mergers are confirmed sites of rapid neutron-capture process ($r$-process) nucleosynthesis, typically inferred from late-time kilonova emissions. Here, we report the detection of a statistically significant spectral gap between sub-GeV and GeV photons in the prompt emission of GRB 210704A. By constraining the bulk Lorentz factor ($\Gamma \approx 200-300$), we map this gap to an energy of $\sim 2-7$ MeV in the comoving frame. We show that this feature is naturally explained by the resonant photodissociation of deuterium ($^2$H), whereas the Giant Dipole Resonance of heavier nuclei occurs at much higher energies ($\sim 20$ MeV). Furthermore, the extremely short dynamical timescale of the prompt emission favors the survival of deuterium, as the formation of heavier $r$-process elements is bottlenecked by slower $\beta$-decays. This observation provides the first spectroscopic evidence of light $r$-process element formation within a relativistic jet, linking the immediate aftermath of a compact object merger to nucleosynthesis.
-Catastrophic stellar endpoint events such as binary neutron star mergers and collapsars are proposed to be sites of rapid neutron-capture process ($r$-process) nucleosynthesis. We report the detection of a statistically significant spectral gap between sub-GeV and GeV photons in the prompt emission of GRB 210704A. By constraining the bulk Lorentz factor, we map this gap to an energy of around $3.5 - 6.7 \text{ MeV}$ in the comoving frame. We rule out alternative explanations and show that this feature is naturally explained by resonant photodissociation of deuterium ($^2$H), whereas the Giant Dipole Resonance of heavier nuclei occurs at much higher energies ($\sim 20$ MeV). Furthermore, the extremely short dynamical timescale of the prompt emission favors the survival of deuterium, as the formation of heavier $r$-process elements is bottlenecked by slower $\beta$-decays. This observation provides the first spectroscopic evidence of light $r$-process element formation within a relativistic jet, linking the immediate aftermath of the relativistic outflow generated in catastrophic stellar endpoints to nucleosynthesis.
+Catastrophic stellar endpoint events such as binary neutron star mergers and collapsars are proposed to be sites of rapid neutron-capture process (\DIFdelbegin \DIFdel{r-process}\DIFdelend \DIFaddbegin \DIFadd{$r$-process}\DIFaddend ) nucleosynthesis. We report the detection of a statistically significant spectral gap between sub-GeV and GeV photons in the prompt emission of GRB 210704A. By constraining the bulk Lorentz factor, we map this gap to an energy of around $3.5 - 6.7 \text{ MeV}$ in the comoving frame. We rule out alternative explanations and show that this feature is naturally explained by resonant photodissociation of deuterium ($^2$H), whereas the Giant Dipole Resonance of heavier nuclei occurs at much higher energies ($\sim 20$ MeV). Furthermore, the extremely short dynamical timescale of \DIFaddbegin \DIFadd{the }\DIFaddend prompt emission favors the survival of deuterium, as the formation of heavier \DIFdelbegin \DIFdel{r-process }\DIFdelend \DIFaddbegin \DIFadd{$r$-process }\DIFaddend elements is bottlenecked by slower $\beta$-decays. This observation provides the first spectroscopic evidence of light \DIFdelbegin \DIFdel{r-process }\DIFdelend \DIFaddbegin \DIFadd{$r$-process }\DIFaddend element formation within a relativistic jet, linking the immediate aftermath of the relativistic outflow generated in catastrophic stellar endpoints to nucleosynthesis.
 \end{abstract}
 
 \maketitle
 
 \textit{Introduction.}---%The merger of binary neutron stars (BNS) or a neutron star and a black hole (NSBH) creates an extremely neutron-rich environment, ideal for the rapid neutron-capture process ($r$-process) (e.g., see Refs.\cite{1974ApJ...192L.145L, 1989Natur.340..126E,2018ApJ...869..130R,2019LRR....23....1M,2020ApJ...903L...3W,2024Natur.626..737L}). While the gravitational wave event GW170817 and its associated kilonova AT2017gfo confirmed that such mergers synthesize heavy elements \cite{2017PhRvL.119p1101A, 2017Natur.551...80K, 2019LRR....23....1M}, observational evidence has largely been restricted to the thermal emission of radioactive decay on timescales of days. Investigating nucleosynthesis during the \textit{prompt} phase (minutes after the merger) remains a significant challenge, primarily due to intense radiation masking nuclear spectral lines.
-Core-collapse supernovae (CC SNe) and binary neutron star (BNS) mergers both create neutron-rich environments; they are the two leading candidates for producing most of the rapid neutron-capture process ($r$-process) elements in the universe~\citep[e.g.][]{1974ApJ...192L.145L, 1989Natur.340..126E,2007PhR...450...97A,2004A&A...416..997A,2014MNRAS.438.2177M,2015MNRAS.452.1970W, 2018ApJ...869..130R,2019LRR....23....1M,2020ApJ...903L...3W,2024Natur.626..737L}. Although the gravitational wave event GW170817 and its associated kilonova AT2017gfo confirmed that such mergers synthesize heavy elements \citep{2017PhRvL.119p1101A, 2019LRR....23....1M}, observational evidence has largely been restricted to the thermal emission of radioactive decay on timescales of days. 
-Gamma-ray bursts (GRBs) launch relativistic jets that may entrain neutron-rich material from the central engine; high-entropy winds and fireballs associated with GRBs have been proposed to be a source of light-element synthesis~\citep[][]{1967ARA&A...5..525F,2001ApJ...561..957P,2000ApJ...533..424O,2001ApJ...562..887T,2002ApJ...580..368P,2003ApJ...588..931B}. If nuclear species survive in the jet, they imprint absorption features on the gamma-ray spectrum. However, identifying these features requires precise knowledge of the bulk Lorentz factor ($\Gamma$) to translate the observed energies to the comoving frame. In this Letter, we present the discovery of a discrete spectral gap in the high-energy emission of GRB 210704A. We demonstrate that this anomaly corresponds to the photodissociation threshold of deuterium ($^2$H) in the jet's comoving frame. %This identification implies that the jet was loaded with $r$-process seed nuclei synthesized on second timescales, consistent with a neutron star merger origin.
+Core-collapse supernovae (CC SNe) and binary neutron \DIFdelbegin \DIFdel{stars }\DIFdelend \DIFaddbegin \DIFadd{star }\DIFaddend (BNS) mergers both create neutron-rich environments; they are the two leading candidates for producing most of the rapid \DIFdelbegin \DIFdel{neutron capture process (r-process}\DIFdelend \DIFaddbegin \DIFadd{neutron-capture process ($r$-process}\DIFaddend ) elements in the universe~\citep[e.g.][]{1974ApJ...192L.145L, 1989Natur.340..126E,2007PhR...450...97A,2004A&A...416..997A,2014MNRAS.438.2177M,2015MNRAS.452.1970W, 2018ApJ...869..130R,2019LRR....23....1M,2020ApJ...903L...3W,2024Natur.626..737L}. Although the gravitational wave event GW170817 and its associated kilonova AT2017gfo confirmed that such mergers synthesize heavy elements \citep{2017PhRvL.119p1101A, 2019LRR....23....1M}, observational evidence has largely been restricted to the thermal emission of radioactive decay on timescales of days. 
+Gamma-ray bursts (GRBs) launch relativistic jets that may entrain neutron-rich material from the central engine; \DIFdelbegin \DIFdel{high-enthalpy }\DIFdelend \DIFaddbegin \DIFadd{high-entropy }\DIFaddend winds and fireballs associated with GRBs have been proposed to be a source of light-element synthesis~\citep[][]{1967ARA&A...5..525F,2001ApJ...561..957P,2000ApJ...533..424O,2001ApJ...562..887T,2002ApJ...580..368P,2003ApJ...588..931B}. If nuclear species survive in the jet, they imprint absorption features on the gamma-ray spectrum. However, identifying these features requires precise knowledge of the bulk Lorentz factor ($\Gamma$) to translate the observed energies to the comoving frame. In this Letter, we present the discovery of a discrete spectral gap in the high-energy emission of GRB 210704A. We demonstrate that this anomaly corresponds to the photodissociation threshold of deuterium ($^2$H) in the jet's comoving frame. %This identification implies that the jet was loaded with $r$-process seed nuclei synthesized on second timescales, consistent with a neutron star merger origin.
 
 \textit{Observation and Spectral Anomaly.}---GRB 210704A was detected by the \textit{Fermi} Gamma-ray Burst Monitor (GBM) and the Large Area Telescope (LAT)~\citep{2021GCN.30380....1M,2021GCN.30375....1B}. 
-The unusual stellar progenitor of GRB 210704A has been debated in previous work~\citep{2021GCN.30380....1M,2023MNRAS.522.5204B}. The recent detailed multiwavelength analysis of GRB 210704A determines that the most likely redshift is $z=2.34$~\cite{2026MNRAS.548ag555P}, by confirming Ly-$\alpha$ absorption through a line-stacking analysis of the afterglow spectrum. In the following analysis, we use $z=2.34$ to estimate the Lorentz factor and to determine the energetics in the comoving frame.
+\DIFdelbegin \DIFdel{Arguments from previous work on the }\DIFdelend \DIFaddbegin \DIFadd{The }\DIFaddend unusual stellar progenitor of GRB 210704A \DIFdelbegin \DIFdel{~\mbox{%DIFAUXCMD
+\citep{2021GCN.30380....1M,2023MNRAS.522.5204B} }\hskip0pt%DIFAUXCMD
+are presented}\DIFdelend \DIFaddbegin \DIFadd{has been debated in previous work~\mbox{%DIFAUXCMD
+\citep{2021GCN.30380....1M,2023MNRAS.522.5204B}}\hskip0pt%DIFAUXCMD
+}\DIFaddend . The recent detailed multiwavelength analysis of GRB 210704A determines that the most likely redshift is $z=2.34$~\cite{2026MNRAS.548ag555P}\DIFdelbegin \DIFdel{by confirming Ly }\DIFdelend \DIFaddbegin \DIFadd{, by confirming Ly-}\DIFaddend $\alpha$ absorption \DIFdelbegin \DIFdel{from }\DIFdelend \DIFaddbegin \DIFadd{through a }\DIFaddend line-stacking analysis \DIFdelbegin \DIFdel{with }\DIFdelend \DIFaddbegin \DIFadd{of the }\DIFaddend afterglow spectrum. In the following analysis, we use $z=2.34$ to estimate the Lorentz factor and to determine the energetics \DIFdelbegin \DIFdel{of }\DIFdelend \DIFaddbegin \DIFadd{in }\DIFaddend the comoving frame.
 
-The burst exhibits a distinct separation in its high-energy photon distribution. While the MeV emission is bright, the GeV emission ($>100$ MeV) arrives almost simultaneously and, crucially, displays a ``zone of avoidance'' in the energy spectrum.
+The burst exhibits a distinct separation in its high-energy photon distribution. While the MeV emission is bright, the GeV emission ($>100$ MeV) arrives almost simultaneously and, crucially, displays a ``zone of avoidance\DIFdelbegin \DIFdel{" }\DIFdelend \DIFaddbegin \DIFadd{'' }\DIFaddend in the energy spectrum.
 
 As shown in FIG.~\ref{fig:spectra}, the photons are densely clustered in the sub-GeV regime ($<0.62$ GeV) and the multi-GeV regime ($>1.21$ GeV), leaving a statistically significant gap (denoted in gray shadow) between approximately $0.62$ GeV and $1.21$ GeV during the prompt phase (from $0.7$ s to $2.0$ s after trigger in GBM).
 
@@ -243,7 +335,7 @@ As shown in FIG.~\ref{fig:spectra}, the photons are densely clustered in the sub
     \end{center}
 \end{figure}
 
-A full likelihood analysis is performed with \textsc{gtlike} to quantify the statistical significance of this gap. Similarly to \cite{2016MNRAS.463.1144W}, we compared a continuous power-law (PL) model with a model explicitly incorporating a spectral gap~\footnote{For \textsc{gtlike}, a ``FileFunction'' option is allowed for a fixed spectral shape and the sole parameter is a multiplicative normalization. To obtain the best parameter for the PL with a gap of 0.6 to 1.2 GeV, a parameter scan is performed for the index of the power law; the minimum $-\log(\rm likelihood)$ and the error (the difference between the index at the minimum $-\log(\rm likelihood)$ and that at $-\log({\rm likelihood})\pm0.5$) are extracted.}, and the analysis yields a preference for the gap model with $\Delta \mathrm{BIC}=-2\Delta\log({\rm likelihood})=9.2$. This value constitutes strong statistical evidence against a simple continuous spectrum~\footnote{$\Delta \mathrm{BIC}$ between 2 and 6 indicates positive evidence; 6--10 indicates strong evidence; and $>10$ implies very strong evidence.}, further supporting the physical separation of the two emission components. Furthermore, a time-resolved analysis reveals that the upper energy envelope of the sub-GeV photons and the lower energy envelope of GeV photons evolve synchronously, maintaining the gap structure. This strong correlation ($\rho > 0.7$, Spearman rank; see the details in Appendix~\ref{sec: correlation}) suggests that the two components are physically linked but separated by an absorption mechanism.
+A full likelihood analysis is performed with \textsc{gtlike} \DIFdelbegin \DIFdel{, }\DIFdelend to quantify the statistical significance of this gap. Similarly to \cite{2016MNRAS.463.1144W}, we compared a continuous power-law (PL) model with a model explicitly incorporating a spectral gap~\footnote{For \textsc{gtlike}, a \DIFdelbegin \DIFdel{“}\DIFdelend \DIFaddbegin \DIFadd{``}\DIFaddend FileFunction\DIFdelbegin \DIFdel{” }\DIFdelend \DIFaddbegin \DIFadd{'' }\DIFaddend option is allowed for \DIFaddbegin \DIFadd{a }\DIFaddend fixed spectral shape and the sole parameter is a multiplicative normalization. To obtain the best parameter for \DIFaddbegin \DIFadd{the }\DIFaddend PL with a gap of 0.6 to 1.2 GeV, a parameter \DIFdelbegin \DIFdel{scanning }\DIFdelend \DIFaddbegin \DIFadd{scan }\DIFaddend is performed for \DIFdelbegin \DIFdel{each parameter (}\DIFdelend \DIFaddbegin \DIFadd{the }\DIFaddend index of \DIFdelbegin \DIFdel{power-law) and extract }\DIFdelend \DIFaddbegin \DIFadd{the power law; }\DIFaddend the minimum \DIFdelbegin \DIFdel{–log(likelihood) }\DIFdelend \DIFaddbegin \DIFadd{$-\log(\rm likelihood)$ }\DIFaddend and the error (the difference between \DIFaddbegin \DIFadd{the }\DIFaddend index \DIFdelbegin \DIFdel{of }\DIFdelend \DIFaddbegin \DIFadd{at }\DIFaddend the minimum \DIFdelbegin \DIFdel{–log(likelihood) }\DIFdelend \DIFaddbegin \DIFadd{$-\log(\rm likelihood)$ }\DIFaddend and that \DIFdelbegin \DIFdel{of –log(likelihood)+/-0.5}\DIFdelend \DIFaddbegin \DIFadd{at $-\log({\rm likelihood})\pm0.5$}\DIFaddend ) \DIFaddbegin \DIFadd{are extracted.}\DIFaddend }, and the analysis yields a preference for the gap model with \DIFdelbegin \DIFdel{$\Delta \mathrm{BIC=-2\Delta\rm{log(likelihood)}}=9.2$}\DIFdelend \DIFaddbegin \DIFadd{$\Delta \mathrm{BIC}=-2\Delta\log({\rm likelihood})=9.2$}\DIFaddend . This value constitutes strong statistical evidence against a simple continuous spectrum~\footnote{$\Delta \mathrm{BIC}$ between 2 and 6 indicates positive evidence; 6--10 indicates strong evidence; and $>10$ implies very strong evidence.}, further supporting the physical separation of the two emission components. Furthermore, a time-resolved analysis reveals that the upper energy envelope of the sub-GeV photons and the lower energy envelope of GeV photons evolve synchronously, maintaining the gap structure. This strong correlation ($\rho > 0.7$, Spearman rank; see the details in Appendix~\ref{sec: correlation}) suggests that the two components are physically linked but separated by an absorption mechanism.
 
 %We quantified the significance of this gap using a Monte Carlo (MC) simulation. Assuming a continuous power-law (PL) distribution that connects the sub-GeV and GeV components, we generated $1.4 \times 10^5$ synthetic photon samples folded with the detector response. The probability of observing a gap width $\ge 590$ MeV (the intersection of all gaps in GeV emission in the first 2 seconds) in the time-intergrated spectrum purely due to Poisson fluctuations was determined to be $p$-value $< 10^{-3}$; this $p$-value is overestimated due to the smoothing effect of the time-intergrated spectrum on the gap. Considering the range of the gap that changes over time, the product of a sequence of $p$-values ($\prod p-$value) for the corresponding larger gaps in time-resolved spectra is very tiny ($\ll10^{-6}$, see details in Appendix~\ref{sec: probstudy}). Furthermore, a time-resolved analysis reveals that the upper energy envelope of the sub-GeV photons and the lower energy envelope of GeV photons evolve synchronously, maintaining the gap structure. This strong correlation ($\rho > 0.7$, Spearman rank; see the details in Appendix~\ref{sec: correlation}) suggests that the two components are physically linked but separated by an absorption mechanism. 
 
@@ -253,10 +345,16 @@ A full likelihood analysis is performed with \textsc{gtlike} to quantify the sta
 
 
 
-\textit{Comoving Frame Energetics.}---To interpret the physical origin of the gap, we must determine the Lorentz factor $\Gamma$. A combined model of a multicolor blackbody \citep[mBB, e.g. see][]{2008ApJ...682..463P,2010ApJ...709L.172R,2018ApJ...866...13H} plus a PL function for the broad energy band is used to describe the spectrum of the prompt emission from the keV to GeV energy band; with the lowest BIC and a difference of $\Delta \rm{BIC}=8.1$, it is statistically preferred over the other models (see details in Figure~\ref{fig:spectra2} in Appendix~\ref{sec:spectra2}).
+\textit{Comoving Frame Energetics.}---To interpret the physical origin of the gap, we must determine the Lorentz factor $\Gamma$. A combined model of \DIFdelbegin \DIFdel{multicolor blackbody (mBB, e.g. see \mbox{%DIFAUXCMD
+\cite[][]{2008ApJ...682..463P,2010ApJ...709L.172R,2018ApJ...866...13H}}\hskip0pt%DIFAUXCMD
+) }\DIFdelend \DIFaddbegin \DIFadd{a multicolor blackbody \mbox{%DIFAUXCMD
+\citep[mBB, e.g. see][]{2008ApJ...682..463P,2010ApJ...709L.172R,2018ApJ...866...13H} }\hskip0pt%DIFAUXCMD
+}\DIFaddend plus a PL function \DIFdelbegin \DIFdel{~\mbox{%DIFAUXCMD
+\citep{1993ApJ...413..281B}  }\hskip0pt%DIFAUXCMD
+}\DIFdelend for the broad energy band is used to describe the spectrum of \DIFaddbegin \DIFadd{the }\DIFaddend prompt emission from \DIFaddbegin \DIFadd{the }\DIFaddend keV to GeV energy band; with \DIFdelbegin \DIFdel{a }\DIFdelend \DIFaddbegin \DIFadd{the }\DIFaddend lowest BIC and \DIFdelbegin \DIFdel{difference }\DIFdelend \DIFaddbegin \DIFadd{a difference of }\DIFaddend $\Delta \rm{BIC}=8.1$, it is statistically preferred over the other models (see details in Figure~\ref{fig:spectra2} in Appendix\DIFaddbegin \DIFadd{~}\DIFaddend \ref{sec:spectra2}).
 
 %Using the method described in \cite{2012MNRAS.420..468P, 2024ApJ...961..137S} (see the detais in Appendix~\ref{sec: estiGamma}), we derived $\Gamma$ from the quasi-thermal component of the spectrum. %The estimated Lorentz factor evolves with time, peaking at $\Gamma \approx 300$ around the peak of luminosity and decaying to $\Gamma \approx 190$ one second later. 
-With $z=2.34$, the Lorentz factor is estimated to be $\gtrsim500$ around the peak flux from the photon with the highest energy (16.09 GeV); the model-dependent method using the quasi-thermal component in the prompt phase proposes a range of 500 to 900 (see the details in Appendix~\ref{sec: estiGamma}).
+With $z=2.34$, the Lorentz \DIFdelbegin \DIFdel{Factor }\DIFdelend \DIFaddbegin \DIFadd{factor }\DIFaddend is estimated to be $\gtrsim500$ around the peak flux \DIFdelbegin \DIFdel{with the photon of }\DIFdelend \DIFaddbegin \DIFadd{from the photon with the }\DIFaddend highest energy (16.09 GeV); the model-dependent method using the quasi-thermal component in the prompt phase proposes a range of 500 to 900 (see the details in Appendix~\ref{sec: estiGamma}).
 
 
  %We can not rule out the explanation of the multi-component emission mechanism, in which the cutoff around 1 GeV is caused by pair production while GeV photons are contributed from early afterglow. The optical depth for pair production $\tau_{\gamma\gamma}>1$ of a $\sim1$ GeV photon requires $\Gamma<2000$ with the emission radius of $10^{12}$ cm (a larger radius requires a smaller upper limit of $\Gamma$); %however, even if the photon of highest energy (16.09 GeV) is from the early afterglow with a radius as large as $10^{15}$ cm, the lower limit of $\Gamma=260$ is required. Moreover, the peak of flux in the MeV band arrives almost simultaneously with that of high-energy photons, implying that the prompt high-energy emission has an internal origin~\citep{2011ApJ...730....1L,2011ApJ...733...22H}. The external shock model can hardly account for the almost simultaneous emission of GeV and sub-GeV photons~\citep{2011MNRAS.412..522B} and the correlation between them.
@@ -268,7 +366,9 @@ Applying the Doppler correction $E' \approx E_{\rm obs} (1+z) / 2\Gamma$ with $\
 \begin{equation}
 E_{\rm gap}^{\prime} \approx 3.5 - 6.7 \text{ MeV}.
 \end{equation}
-Even with $\Gamma=900$, the range is $1.2-2.2$ MeV. This energy range is critical.
+%DIF <  Even with $\Gamma=900$, the range is $1.2-2.2$ MeV. This energy range is critical.
+\DIFaddbegin \DIFadd{Even with $\Gamma=900$, the range is $1.2-2.2$ MeV. This energy range is critical.
+}\DIFaddend 
 
 
 \textit{Resonant Nuclide Absorption.}---We propose that the gap arises from the resonant absorption of photons by nuclei entrained in the jet. The comoving energy of $\sim 4$ MeV aligns remarkably well with the photodissociation threshold of deuterium:
@@ -279,34 +379,46 @@ The cross-section for photodissociation peaks typically around $4-5$ MeV \cite{I
 
 Crucially, this energy scale distinguishes deuterium from all other potential nuclear absorbers. Heavier nuclides, particularly the Fe-group elements often invoked in supernova models, interact with photons primarily through the Giant Dipole Resonance (GDR). The GDR peak energy for nuclei with mass number $A$ is approximately $E_{\rm GDR} \approx 31.2 A^{-1/3} + 20.6 A^{-1/6}$ MeV \cite{1975RvMP...47..713B}, which places the resonance at $15-25$ MeV for heavy elements (e.g., $^{56}$Fe) \cite{2020NuDS..163..109K}. Such absorption would manifest at observed energies $>3$ GeV, far above the gap detected in GRB 210704A. The unique low-energy threshold of deuterium makes it the only viable candidate for an absorption feature at $\sim 4$ MeV.
 
-If the gap indeed arises from resonant deuterium absorption, the resonance energy in turn almost fixes the Lorentz factor to be around 300; we therefore choose $\Gamma = 10^{2.5}$ as a typical value in the following.
+If the \DIFaddbegin \DIFadd{gap indeed arises from }\DIFaddend resonant deuterium absorption\DIFdelbegin \DIFdel{almost fix }\DIFdelend \DIFaddbegin \DIFadd{, the resonance energy in turn almost fixes }\DIFaddend the Lorentz factor \DIFdelbegin \DIFdel{being }\DIFdelend \DIFaddbegin \DIFadd{to be }\DIFaddend around 300\DIFdelbegin \DIFdel{, we }\DIFdelend \DIFaddbegin \DIFadd{; we therefore }\DIFaddend choose $\Gamma = 10^{2.5}$ as a typical value in the following.
 
 \textit{Timescales and Nucleosynthesis.} ---
 With the standard internal shock model for the prompt emission, the emitting radius is determined to be~\citep{2011ApJ...726...90Z}
-\begin{equation}\label{eq:Ris}
-%R_{\rm IS}=d/(\beta_{\rm f}-\beta_{\rm s})\simeq 2 \Gamma_{\rm s}^2 c \delta t \simeq 6 \times 10^{11} \Gamma_{\rm s,2}^2 \delta t_{-3} \ {\rm cm},
+\DIFdelbegin \begin{displaymath}
+%DIF < R_{\rm IS}=d/(\beta_{\rm f}-\beta_{\rm s})\simeq 2 \Gamma_{\rm s}^2 c \delta t \simeq 6 \times 10^{11} \Gamma_{\rm s,2}^2 \delta t_{-3} \ {\rm cm},
+\DIFdel{R \simeq 2 \Gamma^2 c \delta t \simeq 6 \times 10^{12} \Gamma_{2.5}^2 \delta t_{-3}/(1+z) \ {\rm cm},
+}\end{displaymath}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \begin{equation}\DIFadd{\label{eq:Ris}
+%DIF > R_{\rm IS}=d/(\beta_{\rm f}-\beta_{\rm s})\simeq 2 \Gamma_{\rm s}^2 c \delta t \simeq 6 \times 10^{11} \Gamma_{\rm s,2}^2 \delta t_{-3} \ {\rm cm},
 R \simeq 2 \Gamma^2 c \delta t/(1+z) \simeq 6 \times 10^{12} \Gamma_{2.5}^2 \delta t_{-3}/(1+z) \ {\rm cm},
-\end{equation}
+}\end{equation}\DIFaddend 
 %where $d=c\delta t$, $\delta t$ is the duration between the end of ejecting a leading slow shell and the beginning of ejecting a trailing fast shell, $\beta=v/c$, 's’ denotes the slow shell, while 'f’ denotes the fast shell.
-where $\delta t$ is the timescale of the pulse duration; hereafter, the convention $Q_s = Q/10^s$ is adopted in cgs units throughout the text. To extract $\delta t$, a wavelet decomposition is performed with the data of the internal shock emission (photons of energy $< 20$ keV are required, and the contribution from the quasi-thermal emission is $7\%$; the light curve has a sampling rate of 4000 Hz; see the details of the method in \citealt{2013MNRAS.432..857M}). $\delta t$ is determined to be about 1 ms with an uncertainty of a few ms. Considering the redshift ($z=2.34$), the emitting radius is $R \sim 2 \times 10^{12}$ cm.
+\DIFdelbegin \DIFdel{To extract the time scale (}\DIFdelend \DIFaddbegin \DIFadd{where $\delta t$ is the timescale of the pulse duration; hereafter, the convention $Q_s = Q/10^s$ is adopted in cgs units throughout the text. To extract }\DIFaddend $\delta t$\DIFdelbegin \DIFdel{) of pulse duration}\DIFdelend , a wavelet decomposition is performed with the data of the internal shock emission (photons of energy $< 20$ keV are required, and the contribution from \DIFaddbegin \DIFadd{the }\DIFaddend quasi-thermal emission is $7\%$\DIFdelbegin \DIFdel{. The }\DIFdelend \DIFaddbegin \DIFadd{; the }\DIFaddend light curve has a sampling rate of 4000 Hz; see the details of the method in \DIFdelbegin \DIFdel{~\mbox{%DIFAUXCMD
+\citep[][]{2013MNRAS.432..857M}}\hskip0pt%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citealt{2013MNRAS.432..857M}}\hskip0pt%DIFAUXCMD
+}\DIFaddend ). $\delta t$ is determined to be about 1 ms with an uncertainty of a few ms. Considering the redshift ($z=2.34$), the emitting radius \DIFaddbegin \DIFadd{is }\DIFaddend $R \sim 2 \times 10^{12}$ cm.
 %For the slow shell with a small $\Gamma_{\rm s}\sim100$, $R_{\rm IS}\sim 10^{11}$ cm is possible.
 
 The identification of deuterium is further supported by the dynamical timescales of the GRB jet. %The prompt emission occurs at a radius $R \sim 10^{13}-10^{14}$ cm. %ref
-The dynamical time in the comoving frame is extremely short, only a fraction of a second:
+The dynamical time in the comoving frame is extremely short, \DIFdelbegin \DIFdel{on the order of hundreds of seconds}\DIFdelend \DIFaddbegin \DIFadd{only a fraction of a second}\DIFaddend :
 \begin{equation}
 t'_{\rm dyn} \approx \frac{R}{\Gamma c} \sim 0.1 R_{12} \Gamma_{2.5}^{-1} \text{ s}.
 \end{equation}
-In a neutron-rich outflow ejected from the central engine, nucleosynthesis begins with the rapid capture of neutrons by protons ($p + n \rightarrow {^2\text{H}}$). To form heavier $r$-process elements (up to lanthanides), the chain must proceed through the creation of seed nuclei. However, the formation of seeds heavier than deuterium is rate-limited by weak interactions ($\beta$-decays), which typically require timescales of seconds to minutes to proceed significantly; a timescale of $\sim0.1$ s is far too short for heavier elements to form. %On the other hand, for the kilonova side, the $r$-process in the non-relativistic outflow is not influenced by such a jet effect, and lanthanides and other heavy elements still form \cite{2017Natur.551...80K}.
+In a neutron-rich outflow ejected from \DIFdelbegin \DIFdel{a merger}\DIFdelend \DIFaddbegin \DIFadd{the central engine}\DIFaddend , nucleosynthesis begins with the rapid capture of neutrons by protons ($p + n \rightarrow {^2\text{H}}$). To form heavier $r$-process elements (up to \DIFdelbegin \DIFdel{Lanthanides}\DIFdelend \DIFaddbegin \DIFadd{lanthanides}\DIFaddend ), the chain must proceed through the creation of seed nuclei. However, the formation of seeds heavier than deuterium is rate-limited by weak interactions ($\beta$-decays), which typically require timescales of seconds to minutes to proceed significantly\DIFdelbegin \DIFdel{. 0.1 s is }\DIFdelend \DIFaddbegin \DIFadd{; a timescale of $\sim0.1$ s is far }\DIFaddend too short for heavier elements to form. %On the other hand, for the kilonova side, the $r$-process in the non-relativistic outflow is not influenced by such a jet effect, and lanthanides and other heavy elements still form \cite{2017Natur.551...80K}.
 
 Given the relativistic expansion, the jet material is ``frozen out" before significant quantities of heavy elements can form via $\beta$-decay. Consequently, the jet composition at the photospheric radius is expected to be dominated by nucleons and light isotopes, specifically deuterium, rather than heavy metals. This kinetic constraint robustly %excludes Fe-group elements and 
 reinforces the deuterium interpretation.
 
-\textit{Optical depths for photon-electron and photon-deuteron interactions in relativistic internal shocks.}--- The comoving density of the jet, mainly contributed by protons (with a rest mass of $m_p$), is expressed in terms of the isotropic matter luminosity ($L_{\rm K}=E_{\rm K}/T_{\rm dur,lab}$; $E_{\rm K}$ is the kinetic energy and $T_{\rm dur,lab}$ is the duration time in the lab frame) of the jet at the non-thermal emission radius $R$ as%~\footnote{in the comoving frame, the shell volume is $V'=4\pi R^2 (R/\Gamma)$; one has $n^{\prime}_{p}V'm_pc^2=M_{\rm iso}c^2$ and $E_{\rm K}=\Gamma M_{\rm iso} c^2$}
-\begin{equation}\label{eq:nbp}
+\textit{Optical depths for photon-electron and photon-deuteron interactions in relativistic internal shocks.}--- The comoving density of the jet, mainly contributed by protons (with a rest mass of $m_p$), is expressed in terms of the isotropic matter luminosity (\DIFdelbegin \DIFdel{$L_{\rm K}=E_{\rm K}/T_{\rm dur,\\lab}$}\DIFdelend \DIFaddbegin \DIFadd{$L_{\rm K}=E_{\rm K}/T_{\rm dur,lab}$}\DIFaddend ; $E_{\rm K}$ is the kinetic energy \DIFdelbegin \DIFdel{, $T_{\rm dur,\\lab}$ }\DIFdelend \DIFaddbegin \DIFadd{and $T_{\rm dur,lab}$ }\DIFaddend is the duration time in the lab frame) of the jet at the non-thermal emission radius $R$ as%~\footnote{in the comoving frame, the shell volume is $V'=4\pi R^2 (R/\Gamma)$; one has $n^{\prime}_{p}V'm_pc^2=M_{\rm iso}c^2$ and $E_{\rm K}=\Gamma M_{\rm iso} c^2$}
+\DIFdelbegin \begin{align*}\DIFdel{%DIFDELCMD < \label{eq:nbp}%%%
+ n^{\prime}_{p}=\frac{L_{\rm K}}{4\pi R^2 c \Gamma^2 m_p c^2}\nonumber
+     =1.8\times 10^{17} L_{\rm K,55} R_{12}^{-2}\Gamma_{2.5}^{-2} \ \rm cm^{-3} , \nonumber}\\
+\DIFdel{}\end{align*}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \begin{equation}\DIFadd{\label{eq:nbp}
  n^{\prime}_{p}=\frac{L_{\rm K}}{4\pi R^2 c \Gamma^2 m_p c^2}
      =1.8\times 10^{17} L_{\rm K,55} R_{12}^{-2}\Gamma_{2.5}^{-2} \ {\rm cm^{-3}},
-\end{equation}
-where $L_{\rm K,55}=L_{\rm K}/10^{55}{\,\rm erg\,s^{-1}}$ and the unit of $R$ is cm. With the comoving density of deuterium $n'_{D}$ and the number fraction of deuterium ($Y_{D}$),
+}\end{equation}\DIFaddend 
+where $L_{\rm K,55}=L_{\rm K}/10^{55}{\,\rm erg\,s^{-1}}$ and the unit of $R$ is cm\DIFdelbegin \DIFdel{; in the following, the convention $Q_s = Q/10^s$ is adopted in cgs units throughout the text}\DIFdelend . With the comoving density of deuterium $n'_{D}$ and the number fraction of deuterium ($Y_{D}$),
 the optical depth for the photodissociation of deuterium is 
 \begin{equation}\label{eq:taugD}
   \tau_{\gamma D}\sim\frac{\sigma_{\gamma D} n'_ D R}{\Gamma}=1.4 Y_{D} L_{\rm K, 55} R_{12}^{-1} \Gamma_{2.5}^{-3},
@@ -315,9 +427,10 @@ where $\sigma_{\gamma D}\simeq 2.5\times10^{-27}$ cm$^{2}$ at a photon energy
 $\varepsilon'_\gamma \simeq 4.48~{\rm MeV}$ in the deuteron rest frame \cite{IAEA2000}. %Page 71, 1st line. Citation there: Ann.Phys.27,79,1964, Fuller
 %Note that  $\Gamma\simeq 500$ is taken for the merged shells in internal shocks; it is typically less than the estimated maximum value.  
 
-On the other hand, the GeV photons should escape freely from the scattering off electrons. Internal shocks are natural sites for the dissipation of the kinetic energy of a baryonic fireball~\citep[][]{1990ApJ...365L..55S,1992MNRAS.258P..41R,1993ApJ...405..278M,1994ApJ...430L..93R}.
-In the internal shock model of gamma-ray bursts, electrons accelerated at relativistic shocks are commonly assumed to follow a non-thermal distribution \cite{2004RvMP...76.1143P},
-\begin{equation}
+On the other hand, the GeV photons should \DIFdelbegin \DIFdel{be freely escaped }\DIFdelend \DIFaddbegin \DIFadd{escape freely }\DIFaddend from the scattering \DIFdelbegin \DIFdel{of }\DIFdelend \DIFaddbegin \DIFadd{off }\DIFaddend electrons. Internal shocks are natural sites for the dissipation of the kinetic energy of a baryonic fireball~\citep[][]{1990ApJ...365L..55S,1992MNRAS.258P..41R,1993ApJ...405..278M,1994ApJ...430L..93R}.
+In the internal shock model of gamma-ray bursts, electrons accelerated at relativistic shocks are commonly assumed to follow a non-thermal distribution \cite{2004RvMP...76.1143P}\DIFdelbegin \DIFdel{.
+}\DIFdelend \DIFaddbegin \DIFadd{,
+}\DIFaddend \begin{equation}
 N(\gamma_e) \propto \gamma_e^{-p}, \qquad \gamma_e \ge \gamma_m ,
 \end{equation}
 where $\gamma_m$ is the minimal Lorentz factor of the electrons accelerated in the internal shocks.
@@ -334,47 +447,74 @@ where $\varepsilon'_\gamma$ is the photon energy in the comoving frame. One has 
 \label{eq:sigmaKN-GBM}
 \end{equation}
 thus, the optical depth for Compton scattering in the Klein-Nishina regime is
-\begin{equation}
-\tau_{\rm KN} \sim \frac{\sigma_{\rm KN} n'_e R}{\Gamma}
+\DIFdelbegin \DIFdel{about 
+}\begin{displaymath}
+\DIFdel{\tau_{\rm KN} \sim \frac{\sigma_{\rm KN} n'_e R}{\Gamma}
+\lesssim 2.6\times10^{-3} L_{\rm K, 55}R_{12}^{-1} \Gamma_{2.5}^{-3}\ll 1,
+%DIFDELCMD < \label{eq:sigmaKN-GBM}%%%
+}\end{displaymath}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \begin{equation}
+\DIFadd{\tau_{\rm KN} \sim \frac{\sigma_{\rm KN} n'_e R}{\Gamma}
 \lesssim 2.6\times10^{-3} L_{\rm K, 55}R_{12}^{-1} \Gamma_{2.5}^{-3}\ll 1,
 \label{eq:tauKN-GBM}
-\end{equation}
-assuming local electric neutrality in the jet, $n'_{e}\simeq n'_p$.
+}\end{equation}\DIFaddend 
+\DIFdelbegin \DIFdel{with assuming local electrical }\DIFdelend \DIFaddbegin \DIFadd{assuming local electric }\DIFaddend neutrality in the jet, $n'_{e}\simeq n'_p$.
 %The break energy ($\varepsilon_b$) in the spectrum of the non-thermal component described by a BAND function (e.g. the synchrotron emission by the relativistic electrons in magnetic field) may correspond to $\tau_{\rm KN} (\varepsilon_b')\sim1$ at $\gamma_e\sim\gamma_m$. From the results of the modeling of the non-thermal component, the break energy is $\varepsilon_b\sim10^4$ keV, which corresponds to $\gamma_m\sim10^{5.4}$ in this case; $\sigma_{\rm KN}\sim10^{-30}$ cm$^{2}$ is much lower for the photons of $\varepsilon_\gamma'=4$ MeV, due to a deeper Klein-Nishina regime.
 
-The estimates above show that the photons falling in the resonant band should be absorbed by the deuterium, while the other photons are able to escape from the scattering off the electrons.%However, the MeV photons may not be able to escape as it may not be in the deep KN region.
+The \DIFdelbegin \DIFdel{estimations }\DIFdelend \DIFaddbegin \DIFadd{estimates }\DIFaddend above show that the \DIFdelbegin \DIFdel{GeV photons at the gap }\DIFdelend \DIFaddbegin \DIFadd{photons falling in the resonant band }\DIFaddend should be absorbed by the deuterium\DIFaddbegin \DIFadd{, }\DIFaddend while the other photons are able to escape from the scattering \DIFdelbegin \DIFdel{of }\DIFdelend \DIFaddbegin \DIFadd{off }\DIFaddend the electrons.%However, the MeV photons may not be able to escape as it may not be in the deep KN region.
 %...
 %Please note that "the MeV photons may not be able to escape" is not consistent with the observation. The PL component extends to keV region.
 
 
 \textit{Discussion.}---Let us demonstrate
-the plausibility of the observation of photodissociation of deuterium in the jet of GRB 210704A as follows: the first key point is whether the baryon loading in a relativistic outflow could produce enough deuterium;
-second, GeV photons are emitted while those in the resonant region are absorbed by deuterium, which requires that $\tau_{\gamma D}$ and $\tau_{\rm KN}$ (for GeV photons) satisfy
+the plausibility of the observation of photodissociation of deuterium in the jet of GRB 210704A as follows: the \DIFaddbegin \DIFadd{first }\DIFaddend key point is whether \DIFaddbegin \DIFadd{the }\DIFaddend baryon loading in a relativistic outflow could produce enough deuterium;
+second, GeV photons are emitted while those in the resonant \DIFdelbegin \DIFdel{regions }\DIFdelend \DIFaddbegin \DIFadd{region }\DIFaddend are absorbed by deuterium, which requires that $\tau_{\gamma D}$ and $\tau_{\rm KN}$ (for GeV photons) \DIFdelbegin \DIFdel{should }\DIFdelend satisfy
 \begin{equation}\label{eq:criterion}
     \tau_{\rm KN}<1\lesssim\tau_{\gamma D}.
 \end{equation}
 
-The total isotropic-equivalent luminosity of the outflow could be estimated from the radiated luminosity $L_{\gamma, \rm iso}$ and the radiative efficiency ($\epsilon_\gamma$) as
-\begin{equation}
-    L_{\rm tot, iso}= L_{\gamma, \rm iso}/\epsilon_\gamma;
-\end{equation}
-for a baryonic fireball, $L_{\rm K}\lesssim (1-\epsilon_\gamma)L_{\rm tot, iso}$.
-It is reasonable that $\epsilon_\gamma\lesssim10\%$, because the radiation efficiency of internal shocks is typically low \citep[e.g.,][]{2011ApJ...726...90Z,2008FrPhC...3..306F}. $L_{\gamma, \rm iso}=1.0\times10^{54}$ erg s$^{-1}$ for the component from the keV to GeV energy band (about 2.6 times that of the peaking component in the MeV emission); therefore, we assume that $L_{\rm K}$ is comparable to $10^{55}$ erg s$^{-1}$.
+The total \DIFdelbegin \DIFdel{energy }\DIFdelend \DIFaddbegin \DIFadd{isotropic-equivalent luminosity }\DIFaddend of the outflow could be estimated \DIFdelbegin \DIFdel{by the radiative $E_{\gamma, \rm iso}$ }\DIFdelend \DIFaddbegin \DIFadd{from the radiated luminosity $L_{\gamma, \rm iso}$ }\DIFaddend and the radiative efficiency ($\epsilon_\gamma$) as
+\DIFdelbegin \begin{displaymath}
+    \DIFdel{E_{\rm tot, iso}= E_{\gamma, \rm iso}/\epsilon_\gamma;
+}\end{displaymath}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \begin{equation}
+    \DIFadd{L_{\rm tot, iso}= L_{\gamma, \rm iso}/\epsilon_\gamma;
+}\end{equation}\DIFaddend 
+for \DIFaddbegin \DIFadd{a }\DIFaddend baryonic fireball, $L_{\rm K}\lesssim (1-\epsilon_\gamma)L_{\rm tot, iso}$.
+It is reasonable that $\epsilon_\gamma\lesssim10\%$, \DIFdelbegin \DIFdel{and this is }\DIFdelend because the radiation efficiency of internal shocks is typically low \DIFdelbegin \DIFdel{(e.g., see Refs.~\mbox{%DIFAUXCMD
+\citep[][]{2011ApJ...726...90Z,2008FrPhC...3..306F}}\hskip0pt%DIFAUXCMD
+)}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep[e.g.,][]{2011ApJ...726...90Z,2008FrPhC...3..306F}}\hskip0pt%DIFAUXCMD
+}\DIFaddend . $L_{\gamma, \rm iso}=1.0\times10^{54}$ erg s$^{-1}$ for the component from \DIFaddbegin \DIFadd{the }\DIFaddend keV to GeV energy band (about 2.6 times that of the peaking component in \DIFaddbegin \DIFadd{the }\DIFaddend MeV emission); therefore, we assume that $L_{\rm K}$ is comparable to \DIFdelbegin \DIFdel{$ 10^{55}$ }\DIFdelend \DIFaddbegin \DIFadd{$10^{55}$ }\DIFaddend erg s$^{-1}$.
 In fact, $L_{\gamma, \rm iso}$ obtained from the modeling is time-averaged; the density of baryons is not uniform, and $L_{\rm K}$ for each pulse (or shell) is even larger.
 
 
-$Y_{D}$ can be as large as $\simeq10\%$ under the right conditions in neutron-ion decoupling \citep[see the simulation in][]{2002ApJ...580..368P}. A large production of deuterium could also proceed through the spallation
-of $\alpha$-particles~\citep{2003ApJ...588..931B}, which is caused by neutron-ion decoupling, as well as by internal shocks.
-Although nucleosynthesis is sensitive to the unknown details of the intense internal shocks occurring in the jet of GRB 210704A, we expect that $Y_{D}$ might be even greater due to the spallation of $\alpha$-particles. Considering that the fraction of $\alpha$-particles could be comparable with that of nucleons for the short dynamical time~\citep[]{2002ApJ...580..368P,2003ApJ...588..931B}, $Y_{\rm D}\simeq0.3$ is not impossible and Eq.~(\ref{eq:criterion}) is satisfied in this case. For the Lorentz factor, $\Gamma\simeq 300$ is a plausible value that could lead to $\tau_{\gamma D}\gtrsim1$.
-Given $\gamma_m\simeq5\times10^{6}$ and $p=2$ for the power-law distribution of $\gamma_e$, even photons of much smaller energy, e.g. $E_{\rm obs}\simeq10$ keV, satisfy $\tau_{\rm KN}<1$. This is well consistent with the observed prompt spectrum.
+$Y_{D}$ can be as large as $\simeq10\%$ under the right conditions in neutron-ion decoupling \DIFdelbegin \DIFdel{(see the simulation of Ref.~\mbox{%DIFAUXCMD
+\citep[][]{2002ApJ...580..368P}}\hskip0pt%DIFAUXCMD
+). The }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep[see the simulation in][]{2002ApJ...580..368P}}\hskip0pt%DIFAUXCMD
+. A }\DIFaddend large production of deuterium could \DIFdelbegin \DIFdel{be }\DIFdelend \DIFaddbegin \DIFadd{also proceed }\DIFaddend through the spallation
+of $\alpha$-particles~\citep{2003ApJ...588..931B}, which is caused by neutron-ion decoupling, as well as \DIFaddbegin \DIFadd{by }\DIFaddend internal shocks.
+\DIFdelbegin \DIFdel{In }\DIFdelend \DIFaddbegin \DIFadd{Although nucleosynthesis is sensitive to the unknown details of }\DIFaddend the intense internal shocks \DIFdelbegin \DIFdel{that occur }\DIFdelend \DIFaddbegin \DIFadd{occurring }\DIFaddend in the jet of GRB 210704A, \DIFdelbegin \DIFdel{although nucleosynthesis is sensitive to
+these unknown details inside, }\DIFdelend we expect that $Y_{D}$ might be even greater due to the spallation of $\alpha$-particles. Considering that the fraction of $\alpha$-particles could be comparable with \DIFdelbegin \DIFdel{those }\DIFdelend \DIFaddbegin \DIFadd{that }\DIFaddend of nucleons for the short \DIFdelbegin \DIFdel{dynamic }\DIFdelend \DIFaddbegin \DIFadd{dynamical }\DIFaddend time~\citep[]{2002ApJ...580..368P,2003ApJ...588..931B}, $Y_{\rm D}\simeq0.3$ is not impossible and Eq\DIFaddbegin \DIFadd{.~}\DIFaddend (\ref{eq:criterion}) is satisfied in this case. For the Lorentz \DIFdelbegin \DIFdel{Factor}\DIFdelend \DIFaddbegin \DIFadd{factor}\DIFaddend , $\Gamma\simeq 300$ is a plausible value that could lead to $\tau_{\gamma D}\gtrsim1$.
+Given $\gamma_m\simeq5\times10^{6}$ and $p=2$ \DIFdelbegin \DIFdel{of }\DIFdelend \DIFaddbegin \DIFadd{for }\DIFaddend the power-law distribution of $\gamma_e$, \DIFdelbegin \DIFdel{for }\DIFdelend \DIFaddbegin \DIFadd{even }\DIFaddend photons of much smaller energy, e.g. $E_{\rm obs}\simeq10$ keV, \DIFdelbegin \DIFdel{this satisfies }\DIFdelend \DIFaddbegin \DIFadd{satisfy }\DIFaddend $\tau_{\rm KN}<1$. This is well consistent with the observed prompt spectrum.
 
 %\iffalse
- For the high-energy photons, because of the very small optical depth for Compton scattering, the photons of the PL component escape from the outflow once produced. The interactions between the high-energy photons and their target photons with lower energies are in the relativistic regime; thus the Lorentz factor of the outgoing pairs is $\gamma_{\pm}\gg1$ (where $\gamma_{\pm}\equiv\frac{E_{0}}{m_e c^2}$ and $E_{0}$ is the incoming photon
-energy in the center-of-momentum frame), and the cross section for pair production is suppressed to~\citep{1976tper.book.....J, 2018pgrb.book.....Z}
-\begin{equation}
-\sigma_{\gamma\gamma}=\frac{3}{8}\sigma_{\rm T} \gamma_{\pm}^{-2}({\rm ln}2\gamma_{\pm}^2 -1)\simeq10^{-31} \ {\rm cm}^{2}\ll \sigma_{\rm T}.
-\end{equation}
-$\tau_{\gamma\gamma}\lesssim1$ for the high-energy photons of 1.21 GeV$-$4.39 GeV, which constitute the upper boundary of the gap, requires $\Gamma\gtrsim300$ at $R\sim10^{12}$ cm, which is well consistent with our hypothesis.
+ For the high-energy photons, because of the very small optical depth for Compton scattering, \DIFdelbegin \DIFdel{photons of PL component are emitted out of }\DIFdelend \DIFaddbegin \DIFadd{the photons of the PL component escape from }\DIFaddend the outflow once produced. The interactions between \DIFaddbegin \DIFadd{the }\DIFaddend high-energy photons and their target photons with lower energies are in the relativistic regime; thus the Lorentz factor of the outgoing pairs \DIFaddbegin \DIFadd{is }\DIFaddend $\gamma_{\pm}\gg1$ (where $\gamma_{\pm}\equiv\frac{E_{0}}{m_e c^2}$ and $E_{0}$ is the incoming photon
+energy in the center-of-momentum frame), \DIFaddbegin \DIFadd{and }\DIFaddend the cross section for pair production is suppressed to\DIFdelbegin \DIFdel{be ~\mbox{%DIFAUXCMD
+\citep{1976tper.book.....J, 2018pgrb.book.....Z}
+}\hskip0pt%DIFAUXCMD
+,
+}\begin{displaymath}
+\DIFdel{\sigma_{\gamma\gamma}=\frac{3}{8}\sigma_{\rm T} \gamma_{\pm}^{-2}(\rm{ln}2\gamma_{\pm}^2 -1)\simeq10^{-31} \ }\\\DIFdel{\rm{cm}^{2}\ll \sigma_{\rm T}.
+}\end{displaymath}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\citep{1976tper.book.....J, 2018pgrb.book.....Z}
+}\hskip0pt%DIFAUXCMD
+}\begin{equation}
+\DIFadd{\sigma_{\gamma\gamma}=\frac{3}{8}\sigma_{\rm T} \gamma_{\pm}^{-2}(}{\DIFadd{\rm ln}}\DIFadd{2\gamma_{\pm}^2 -1)\simeq10^{-31} \ {\rm cm}^{2}\ll \sigma_{\rm T}.
+}\end{equation}\DIFaddend 
+$\tau_{\gamma\gamma}\lesssim1$ \DIFdelbegin \DIFdel{of }\DIFdelend \DIFaddbegin \DIFadd{for }\DIFaddend the high-energy photons of 1.21 GeV$-$4.39 GeV\DIFdelbegin \DIFdel{which consist of the upper envelope }\DIFdelend \DIFaddbegin \DIFadd{, which constitute the upper boundary }\DIFaddend of the gap, requires \DIFdelbegin \DIFdel{that }\DIFdelend $\Gamma\gtrsim300$ at $R\sim10^{12}$ cm, which is \DIFdelbegin \DIFdel{consistent well }\DIFdelend \DIFaddbegin \DIFadd{well consistent }\DIFaddend with our hypothesis.
 
 
 
@@ -384,11 +524,11 @@ $\tau_{\gamma\gamma}\lesssim1$ for the high-energy photons of 1.21 GeV$-$4.39 Ge
 
 %The baryon loading mass in the jet is calculated to be $f_{b}M_{\rm iso}\sim10^{-6}M_{\odot}$ by $E_{\rm K}=\Gamma M_{\rm iso}c^2$ (the typical beaming factor for short GRBs is $f_b\sim6\times10^{-3}$, see~\citep[][]{2014ARA&A..52...43B}), which is a reasonable value for merger events~\citep{2007PhR...442..166N,2019LRR....23....1M,2025PhRvD.111f3040S}.
 
-\textit{Conclusion.}---We identified a statistically significant spectral gap in the prompt emission of GRB 210704A. Interpreting this for the first time as resonant absorption by deuterium nuclei in a jet with $\Gamma\simeq 300$, we find a consistent physical picture that links the burst to a neutron-rich progenitor. This represents the first direct spectroscopic detection of the ingredients of $r$-process nucleosynthesis in the prompt gamma-ray phase, opening a new window for studying nuclear astrophysics in extreme environments.
+\textit{Conclusion.}---We identified a statistically significant spectral gap in the prompt emission of GRB 210704A. Interpreting this \DIFaddbegin \DIFadd{for the first time }\DIFaddend as resonant absorption by deuterium nuclei in a jet with $\Gamma\simeq 300$\DIFdelbegin \DIFdel{for the first time}\DIFdelend , we find a consistent physical picture that links the burst to a neutron-rich progenitor. This represents the first direct spectroscopic detection of \DIFdelbegin \DIFdel{nucleosynthesis ingredients in the }\DIFdelend \DIFaddbegin \DIFadd{the ingredients of }\DIFaddend $r$-process \DIFaddbegin \DIFadd{nucleosynthesis }\DIFaddend in the prompt gamma-ray phase, opening a new window for studying nuclear astrophysics in extreme environments.
 
 
 Previous studies of GRB 210704A noted its peculiar properties, despite its duration lying in the intermediate range \citep{2021GCN.30380....1M, 2023MNRAS.522.5204B, 2026MNRAS.548ag555P}. %Our finding provides a completely independent confirmation of this progenitor channel. 
-Unlike kilonovae, which probe the sub-relativistic ejecta days after the event, this spectral feature probes the relativistic jet itself seconds after launch, revealing the initial chemical composition of the $r$-process flow. It should be noted that such observations are expected to be rare: GRB 210704A is a `short' long burst that favors the abundance of deuterium, and the high baryon loading of the outflow together with the rapid variability of the central engine creates the conditions for the occurrence of intense internal shocks.
+Unlike kilonovae, which probe the sub-relativistic ejecta days after the event, this spectral feature probes the relativistic jet itself seconds after launch, revealing the initial chemical composition of the $r$-process flow. It should be noted that such observations are expected to be rare\DIFdelbegin \DIFdel{. }\DIFdelend \DIFaddbegin \DIFadd{: }\DIFaddend GRB 210704A is a `short' long burst that favors the abundance of deuterium\DIFdelbegin \DIFdel{; }\DIFdelend \DIFaddbegin \DIFadd{, and }\DIFaddend the high baryon loading of the outflow \DIFdelbegin \DIFdel{and }\DIFdelend \DIFaddbegin \DIFadd{together with the }\DIFaddend rapid variability of the central engine \DIFdelbegin \DIFdel{create }\DIFdelend \DIFaddbegin \DIFadd{creates the }\DIFaddend conditions for the occurrence of intense internal shocks.
 
 
 
@@ -477,26 +617,27 @@ Similar procedures are performed in time-resolved analysis, with the spectral in
 
 \section{The possible correlation between $\gamma^{\rm envelope}_{\rm sub-GeV}$ and $\gamma^{\rm envelope}_{\rm GeV}$}\label{sec: correlation}
 
-The Spearman rank correlation coefficient ($\rho$)~\citep{spearman}\footnote{The Spearman rank correlation coefficient $\rho$ is defined as $\rho = \frac{\mathrm{cov}(r(x),r(y))}{\sigma_x \sigma_y} $ where $r(a)$ represents the rank of element $a$. For non-duplicated datasets, $\rho$ can be interpreted as $\rho = 1 - \frac{6 \Sigma d^2_i}{n(n^2-1)} $ where $d_i = r(x) - r(y)$.} is used to quantify the monotonic relationship of the temporal evolution between the energy of $\gamma^{\rm envelope}_{\rm GeV}$ (denotes the lower envelope of GeV photons) and that of $\gamma^{\rm envelope}_{\rm sub-GeV}$ (denotes the upper energy envelope of sub-GeV photons). $\gamma^{\rm envelope}_{\rm GeV}$ is naturally formed by the GeV photons as shown in FIG.~\ref{fig:correlation} in red circles connected by a red line.
+The Spearman rank correlation coefficient ($\rho$)~\citep{spearman}\footnote{The \DIFdelbegin \DIFdel{spearman }\DIFdelend \DIFaddbegin \DIFadd{Spearman }\DIFaddend rank correlation coefficient $\rho$ is defined as $\rho = \frac{\mathrm{cov}(r(x),r(y))}{\sigma_x \sigma_y} $ where $r(a)$ represents the rank of element $a$. For non-duplicated datasets, $\rho$ can be interpreted as $\rho = 1 - \frac{6 \Sigma d^2_i}{n(n^2-1)} $ where $d_i = r(x) - r(y)$.} is used to quantify the monotonic relationship of the temporal evolution between the energy of $\gamma^{\rm envelope}_{\rm GeV}$ (denotes the lower envelope of GeV photons) and that of $\gamma^{\rm envelope}_{\rm sub-GeV}$ (denotes the upper energy envelope of sub-GeV photons). $\gamma^{\rm envelope}_{\rm GeV}$ is naturally formed by the GeV photons as shown in FIG.~\ref{fig:correlation} in red circles connected by a red line.
 In order to ensure a one-to-one correspondence between $\gamma^{\rm envelope}_{\rm sub-GeV}$ and $\gamma^{\rm envelope}_{\rm GeV}$, the maximum sub-GeV energy value in each time bin was extracted as $\gamma^{\rm envelope}_{\rm sub-GeV}$; the data binning in the range of $T_0+[0.70, 2.05]$ s is performed as follows: 1) the edges of the bin are determined to be the n-equal division points in time of each adjacent GeV point in $\gamma^{\rm envelope}_{\rm GeV}$; 2) to reduce the impact of artificial selection, the bin-edge division ratio (rate) is tested from 0.01 to 0.99 with an increment of 0.01 (for example, a rate equal to 0.2 means left five-division point). 
 
-From all binning results with different bin-edge division ratios, four different energy envelopes of sub-GeV photons were extracted, as shown in FIG.~\ref{fig:correlation}. $\rho$ is determined to be $> 0.7$ conservatively from the results of all sets of bin edges, which implies a strong correlation between $\gamma^{\rm envelope}_{\rm sub-GeV}$ and $\gamma^{\rm envelope}_{\rm GeV}$\footnote{The grading standards and the corresponding correlation degrees are available online:~\href{https://www.statstutor.ac.uk/resources/uploaded/spearmans.pdf}{Spearman's correlation}. }.
-\section{Spectral modelings with different models and the analysis of the prompt emission}\label{sec:spectra2}
+From all binning results with different bin-edge division ratios, four different energy envelopes of sub-GeV photons were extracted, as shown in FIG.\DIFaddbegin \DIFadd{~}\DIFaddend \ref{fig:correlation}. $\rho$ is determined to be $> 0.7$ conservatively from \DIFaddbegin \DIFadd{the }\DIFaddend results of all sets of bin edges, which implies a strong correlation between $\gamma^{\rm envelope}_{\rm sub-GeV}$ and $\gamma^{\rm envelope}_{\rm GeV}$\footnote{The grading standards and the corresponding correlation degrees are available online:~\href{https://www.statstutor.ac.uk/resources/uploaded/spearmans.pdf}{Spearman's correlation}. }.
+\section{Spectral \DIFdelbegin \DIFdel{Modelings }\DIFdelend \DIFaddbegin \DIFadd{modelings }\DIFaddend with different models and the analysis \DIFdelbegin \DIFdel{for }\DIFdelend \DIFaddbegin \DIFadd{of }\DIFaddend the prompt emission}\label{sec:spectra2}
 % FIG.~\ref{fig:spectra2} shows the time-integrated spectral modeling result with mBB + BAND without the gap bin, which is marked in gray in (a). Plots (c)-(e) are Modeling results with BAND, BB+BAND, and mBB+PL respectively.
-FIG.~\ref{fig:spectra2} shows the time-integrated spectral modeling results with mBB + PL, BAND + PL and mBB + BAND.
-The parameters of the three best models are listed below (BIC and $\chi^2$ over the degrees of freedom are shown in the figures):
-\begin{itemize}
+FIG.~\ref{fig:spectra2} shows the time-integrated spectral modeling results with mBB + \DIFdelbegin \DIFdel{BAND, mBB }\DIFdelend \DIFaddbegin \DIFadd{PL, BAND }\DIFaddend + PL and \DIFdelbegin \DIFdel{BAND }\DIFdelend \DIFaddbegin \DIFadd{mBB }\DIFaddend + \DIFdelbegin \DIFdel{PL}\DIFdelend \DIFaddbegin \DIFadd{BAND}\DIFaddend .
+The parameters of the three best models are listed below (BIC and $\chi^2$ \DIFdelbegin \DIFdel{to the degree }\DIFdelend \DIFaddbegin \DIFadd{over the degrees }\DIFaddend of freedom are shown in the figures)\DIFdelbegin \DIFdel{,
+}\DIFdelend \DIFaddbegin \DIFadd{:
+}\DIFaddend \begin{itemize}
     \item BAND+PL: for the BAND component, $\alpha=-0.06^{+0.14}_{-0.11}$, $\beta=-2.80^{+0.26}_{-0.35}$, $E_{\rm p}=256.1^{+13.4}_{-16.1}$ keV, $F_{\rm BAND}=10.7^{+0.7}_{-0.7}\times10^{-6}$ erg cm$^{-2}$ s$^{-1}$; for the PL component: index $p=-1.80^{+0.18}_{-0.09}$, $F_{\rm PL}=20.2^{+3.7}_{-4.2}\times10^{-6}$ erg cm$^{-2}$ s$^{-1}$; 
     \item mBB+PL: for the mBB component, $m=-0.29^{+0.37}_{-0.37}$, $kT_{\rm min}=19.1^{+3.0}_{-3.5}$ keV, $kT_{\rm max}=146.0^{+25.2}_{-17.3}$ keV, $F_{\rm mBB}=8.5^{+0.4}_{-0.3}\times10^{-6}$ erg cm$^{-2}$ s$^{-1}$; for the PL component: $p=-1.81^{+0.06}_{-0.03}$, $F_{\rm PL}=22.4^{+5.6}_{-5.6}\times10^{-6}$ erg cm$^{-2}$ s$^{-1}$; 
     \item mBB+BAND: for the mBB component, $m=-0.37^{+0.55}_{-0.60}$, $kT_{\rm min}=18.8^{+3.7}_{-5.3}$ keV, $kT_{\rm max}=145.1^{+20.0}_{-14.1}$ keV, $F_{\rm mBB}=7.7^{+0.4}_{-0.4}\times10^{-6}$ erg cm$^{-2}$ s$^{-1}$; 
-    for the BAND component: $\alpha=-1.68^{+0.04}_{-0.02}$, $\beta=-1.90^{+0.16}_{-0.07}$, $\log_{10}(E_{\rm p}/{\rm keV})=3.89^{+0.17}_{-0.14}$, $F_{\rm BAND}=23.3^{+1.7}_{-1.8}\times10^{-6}$ erg cm$^{-2}$ s$^{-1}$.
+    for the BAND component: $\alpha=-1.68^{+0.04}_{-0.02}$, $\beta=-1.90^{+0.16}_{-0.07}$, \DIFdelbegin \DIFdel{log10($E_{\rm p})=3.89^{+0.17}_{-0.14}$ keV}\DIFdelend \DIFaddbegin \DIFadd{$\log_{10}(E_{\rm p}/{\rm keV})=3.89^{+0.17}_{-0.14}$}\DIFaddend , $F_{\rm BAND}=23.3^{+1.7}_{-1.8}\times10^{-6}$ erg cm$^{-2}$ s$^{-1}$.
 \end{itemize}
-From the residual distribution from 40 keV to 300 keV, there exists a systematic bias in the modeling with the BAND + PL functions. The change in BIC is $\Delta$BIC = 8.1, which shows a strong preference for mBB + PL. Therefore, the mBB function is better than the BAND function for describing the MeV peak component from the modeling results. In addition, the low-energy photon index for the peaking component is about $-0.1$, although it cannot be decisive evidence for the quasi-thermal emission. The $\Delta$BIC of mBB+BAND relative to mBB+PL is 1.8; although BAND is not an unreasonable model for the component of the broad energy band, the mBB + BAND model is not better than mBB + PL.
+From the residual distribution \DIFdelbegin \DIFdel{of }\DIFdelend \DIFaddbegin \DIFadd{from }\DIFaddend 40 keV to 300 keV, there exists a systematic bias in the modeling with \DIFaddbegin \DIFadd{the }\DIFaddend BAND + PL functions. The change \DIFdelbegin \DIFdel{on }\DIFdelend \DIFaddbegin \DIFadd{in }\DIFaddend BIC is $\Delta$BIC = 8.1, which shows a strong preference for mBB + PL. Therefore, the mBB function is better than the BAND function for describing the MeV peak component from the modeling results. In addition, the low-energy photon index for the peaking component is about \DIFdelbegin \DIFdel{-0.1}\DIFdelend \DIFaddbegin \DIFadd{$-0.1$}\DIFaddend , although it cannot be decisive evidence for the quasi-thermal emission. The $\Delta$BIC of mBB+BAND \DIFaddbegin \DIFadd{relative }\DIFaddend to mBB+PL is 1.8\DIFdelbegin \DIFdel{, and }\DIFdelend \DIFaddbegin \DIFadd{; although }\DIFaddend BAND is not an \DIFdelbegin \DIFdel{unconventional }\DIFdelend \DIFaddbegin \DIFadd{unreasonable }\DIFaddend model for the component of the broad energy band\DIFdelbegin \DIFdel{; thus}\DIFdelend , the mBB + BAND model is not better than mBB + PL.
 
 It is evident that there exist two different components in the prompt emission. There are two candidate processes to interpret the observation:
 
 
-1) There exist seed photons in the outflow, and some of them become the component of a broad energy band from keV to GeV via inverse Compton (IC) scattering by relativistic electrons. However, not all of them are emitted, especially those with lower energies, which correspond to a larger scattering cross section with electrons; moreover, as the electrons cool, the cross section of electron-photon scattering becomes larger and even increases to the Thomson cross section ($\sigma_{\rm T}>\sigma_{\rm KN}$). They will be thermalized below the photosphere and emitted when the radius reaches $R_{\rm ph}$; $R_{\rm ph}$ satisfies ($r_0$ is the initial radius for jet launching, and ranges from $10^7$ cm to $10^9$ cm)~\citep{2018pgrb.book.....Z}
+1) There exist seed photons in the outflow, and some of them become the component of a broad energy band from keV to GeV via inverse Compton (IC) scattering by relativistic electrons. However, not all \DIFaddbegin \DIFadd{of them }\DIFaddend are emitted, especially \DIFdelbegin \DIFdel{for }\DIFdelend those with lower energies, which correspond to a larger scattering cross section with electrons; moreover, as \DIFdelbegin \DIFdel{electrons are cooled}\DIFdelend \DIFaddbegin \DIFadd{the electrons cool}\DIFaddend , the cross section of electron-photon scattering becomes larger and even increases to the Thomson cross section ($\sigma_{\rm T}>\sigma_{\rm KN}$). They will be thermalized below the photosphere and emitted when the radius reaches $R_{\rm ph}$; $R_{\rm ph}$ satisfies ($r_0$ is the initial radius for jet launching, and ranges from $10^7$ cm to $10^9$ cm)~\citep{2018pgrb.book.....Z}
 \begin{eqnarray}
     R_{\rm ph}&\simeq&(\frac{L_{\rm K}\sigma_{\rm e\gamma}}{8\pi m_pc^3\Gamma})^{1/3} r_0^{2/3}\nonumber\\
     &=&4.9\times10^{11}L_{\rm K,55} ^{1/3} (\frac{\sigma_{\rm e\gamma}}{\sigma_{\rm T}})^{1/3}\Gamma_{2.7}^{-1/3}r^{2/3}_{0,8}\ \rm cm %\nonumber
@@ -506,7 +647,7 @@ It is evident that there exist two different components in the prompt emission. 
  R_{\rm ph}&\simeq&\frac{L_{\rm K}\sigma_{\rm e\gamma}}{8\pi m_pc^3\Gamma^3}\nonumber\\
     &=& 4.7\times10^{13}L_{\rm K, 55} (\frac{\sigma_{\rm e\gamma}}{\sigma_{\rm T}}) \Gamma_{2.7}^{-3}\ \rm cm.
 \end{eqnarray}
-The observed time delay of this component relative to the keV--GeV component, $\simeq(1+z)R_{\rm ph}/(2c\Gamma^2)$, is less than a few milliseconds for $R_{\rm ph}\lesssim10^{11}-10^{13}$ cm. This means that the two components arrive almost simultaneously, which is consistent with the observation.
+The observed time delay \DIFdelbegin \DIFdel{$\simeq(1+z)R_{\rm ph}/2c\Gamma^2$ for $R_{\rm ph}\lesssim10^{11-13}$ cm }\DIFdelend \DIFaddbegin \DIFadd{of this component }\DIFaddend relative to the \DIFdelbegin \DIFdel{keV to GeV component}\DIFdelend \DIFaddbegin \DIFadd{keV--GeV component, $\simeq(1+z)R_{\rm ph}/(2c\Gamma^2)$, }\DIFaddend is less than a few milliseconds \DIFaddbegin \DIFadd{for $R_{\rm ph}\lesssim10^{11}-10^{13}$ cm}\DIFaddend . This means that \DIFaddbegin \DIFadd{the }\DIFaddend two components arrive almost simultaneously, which is consistent with the observation.
 
 2) The synchrotron self-Compton (SSC) process in the internal shocks could also account for the two components in the prompt phase. The peaking MeV component comes from synchrotron emission of the accelerated electrons, while some of them behave as seed photons for the IC scattering. However, peak MeV emission should not be quasi-thermal since $\tau_{\rm KN}<1$, which is not consistent with the modeling results that the mBB function is better than the BAND function in describing peak MeV emission. 
 
@@ -524,7 +665,7 @@ Thus, we think that the first explanation is more consistent with the observatio
 \includegraphics[width=.47\textwidth]{Fv_mBBPL0_GRB210704A.pdf}\put(-110,130){(a) }
 \includegraphics[width=.47\textwidth]{Fv_BANDPL0_GRB210704A.pdf}\put(-110,130){(b) }\\
 \includegraphics[width=.47\textwidth]{Fv_mBBBAND0_GRB210704A.pdf}\put(-110,130){(c) }
-\caption{\label{fig:spectra2} (Color online) Modeling results with (a) mBB+PL, (b) BAND+PL and (c) mBB+BAND; the bins inside the gap (gray) are excluded from the fits.}
+\caption{\label{fig:spectra2} (Color online) Modeling results with \DIFaddbeginFL \DIFaddFL{(a) }\DIFaddendFL mBB+\DIFdelbeginFL \DIFdelFL{BAND}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{PL}\DIFaddendFL , \DIFdelbeginFL \DIFdelFL{mBB}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{(b) BAND}\DIFaddendFL +PL and \DIFdelbeginFL \DIFdelFL{BAND }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{(c) mBB}\DIFaddendFL +\DIFdelbeginFL \DIFdelFL{PL, }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{BAND; the }\DIFaddendFL bins inside the gap (gray) are excluded from the fits.}
     \end{center}
 \end{figure*}
 
@@ -534,7 +675,7 @@ Thus, we think that the first explanation is more consistent with the observatio
 The approach for the estimate of $\Gamma$ is sketched in broad terms in the typical fireball model of GRBs~\citep[e.g.][]{1986ApJ...308L..47G,1986ApJ...308L..43P} as follows: the thermal component originates from the photosphere of an
 expanding plasma jet; the observed thermal flux (integrated over
 all frequencies) is given by integrating the intensity over the
-emitting surface~\citep{2007ApJ...664L...1P},
+emitting \DIFaddbegin \DIFadd{surface}\DIFaddend ~\citep{2007ApJ...664L...1P},
 \begin{equation}\label{eq:Fobs_BB}
   F^{\rm obs}_{\rm BB} = \frac{2\pi}{d_L^2} \int^{\mu_{\rm max}}_{\mu_{\rm min}} d\mu \mu
 r_{ph}^2 \D^4 (\sigma_{\rm SB} T'^4_{\rm ph} / \pi).  
@@ -566,12 +707,20 @@ Taking into account different regimes of acceleration of the outflow, for exampl
     c^3 \R} \right]^{1/4}.
 \label{eq:eta}
 \end{equation}
- 
+
 
 More realistically, the observed spectra are broader than the Planck spectrum, because of geometrical broadening~\citep[e.g.][]{2008ApJ...682..463P}. This means that the observed spectrum is a superposition of a series of blackbodies of different temperatures arising from different angles to the line of sight; therefore, a multi-blackbody (mBB) function could be used to describe the quasi-thermal spectrum, and the
 temperatures of the individual Planck function are related
-by a power law. In addition, the other component of the outflow (i.e., Poynting flux) also affects the estimate of $\Gamma$. Therefore, this approach is extended based on basic physical models (the so-called `top-down' approach; see the details in \citealt{2015ApJ...801..103G} and \citealt{2024ApJ...961..137S}). %In this case of mBB function, $kT_{\rm max}$ and $F_{\rm max}= F_{\rm mBB}/(1-(\frac{kT_{\rm min}}{kT_{\rm max}})^{q})$ could be taken as a good probe for the properties of the outflow; $kT_{\rm max}$, $kT_{\rm min}$ and  $q=m+1$ could be extracted from the modeling with data. 
-Note that in the unsaturated regime, $\Gamma$ and $r_{\rm ph}$ are related to the initial radius $r_0$; physically $r_0=10^7 - 10^9$ cm, from which the range of the $\Gamma$ value is estimated.
+by a power law. In addition, the other component of the outflow (i.e., Poynting flux) also affects the estimate of $\Gamma$. Therefore, this approach is extended based on basic physical models (the so-called `top-down' approach; see the details in \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{2015ApJ...801..103G} }\hskip0pt%DIFAUXCMD
+and \mbox{%DIFAUXCMD
+\citep{2024ApJ...961..137S}}\hskip0pt%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citealt{2015ApJ...801..103G} }\hskip0pt%DIFAUXCMD
+and \mbox{%DIFAUXCMD
+\citealt{2024ApJ...961..137S}}\hskip0pt%DIFAUXCMD
+}\DIFaddend ). %In this case of mBB function, $kT_{\rm max}$ and $F_{\rm max}= F_{\rm mBB}/(1-(\frac{kT_{\rm min}}{kT_{\rm max}})^{q})$ could be taken as a good probe for the properties of the outflow; $kT_{\rm max}$, $kT_{\rm min}$ and  $q=m+1$ could be extracted from the modeling with data. 
+Note that in \DIFdelbegin \DIFdel{an }\DIFdelend \DIFaddbegin \DIFadd{the }\DIFaddend unsaturated regime, $\Gamma$ \DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{and }\DIFaddend $r_{\rm ph}$ are related to the initial radius $r_0$\DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{; }\DIFaddend physically $r_0=10^7 - 10^9$ cm, \DIFdelbegin \DIFdel{therefore }\DIFdelend \DIFaddbegin \DIFadd{from which }\DIFaddend the range of \DIFaddbegin \DIFadd{the }\DIFaddend $\Gamma$ value is estimated.
 \iffalse
 \subsection{Estimate of lower limit of $\Gamma$ with the photon with the highest energy}
 
@@ -595,12 +744,20 @@ where in the frame of the observer $n_{\gamma, >E_{\pm,\rm obs}}=2\Gamma n^{'}_{
 \end{equation}\fi
 %where $\Delta t$ is the arrival time delay of high-energy photons relative to MeV emission. 
 
-%\subsection{Estimation based on statistical correlation}
-%There are empirical correlations between $\Gamma$ and $E_{\rm iso}$ and $L_{\rm iso}$: %%% TODO: this subsection was left unfinished; either complete it (e.g., with the $\Gamma_0-E_{\gamma,\rm iso}$ and $\Gamma_0-L_{\gamma,\rm iso}$ relations of Liang et al. 2010, ApJ 725, 2209 and L\"u et al. 2012, ApJ 751, 49, which are currently not in LIV.bib) or leave it removed.
+\DIFdelbegin \subsection{\DIFdel{Estimation based on statistical correlation}}
+%DIFAUXCMD
+\addtocounter{subsection}{-1}%DIFAUXCMD
+\DIFdel{There are empirical correltions between $\Gamma$ and $E_{\rm iso}$ and $L_{\rm iso}$:
+}\DIFdelend %DIF > \subsection{Estimation based on statistical correlation}
+%DIF > There are empirical correlations between $\Gamma$ and $E_{\rm iso}$ and $L_{\rm iso}$: %%% TODO: this subsection was left unfinished; either complete it (e.g., with the $\Gamma_0-E_{\gamma,\rm iso}$ and $\Gamma_0-L_{\gamma,\rm iso}$ relations of Liang et al. 2010, ApJ 725, 2209 and L\"u et al. 2012, ApJ 751, 49, which are currently not in LIV.bib) or leave it removed.
 
 
 \subsection{The estimate of $\Gamma$ in GRB 210704A}
-The range of $\Gamma$ is estimated in different regimes using the `top-down' approach. Regime II ($r_{\rm ra}<r_{\rm ph}<r_{\rm c}$, where $r_{\rm ra}$ is the rapid acceleration radius, and $r_{\rm c}$ is the coasting radius) is allowed. For $T_0+[0.70, 2.05]$ s and assuming $Y=10$, $\Gamma$ ranges from 500 to 900. Note that from Eq.~(\ref{eq:eta}), $\Gamma\propto Y^{1/4}$; the value of $Y$ does not affect the estimate of $\Gamma$ much, e.g., the factor of $Y^{1/4}$ for $Y=10$ is 1.5 times that for $Y=2$. In fact, $\Gamma$ determined from the modeling with a specific model (e.g., a top-hat afterglow model; see the details in \citealt{2026MNRAS.548ag555P}) is about $1000 \pm 600$, which means that the result of this approach is consistent with the model-dependent estimation from the afterglow.
+The \DIFdelbegin \DIFdel{ranges }\DIFdelend \DIFaddbegin \DIFadd{range }\DIFaddend of $\Gamma$ is estimated in different regimes using the `top-down' approach. Regime II ($r_{\rm ra}<r_{\rm ph}<r_{\rm c}$, where $r_{\rm ra}$ is the rapid acceleration radius, and $r_{\rm c}$ is the coasting radius) is allowed. For $T_0+[0.70, 2.05]$ s and assuming $Y=10$, $\Gamma$ ranges from 500 to 900. Note that from Eq\DIFaddbegin \DIFadd{.}\DIFaddend ~(\ref{eq:eta}), $\Gamma\propto Y^{1/4}$\DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{; }\DIFaddend the value of $Y$ does not affect the estimate of $\Gamma$ much, e.g., the factor of $Y^{1/4}$ \DIFdelbegin \DIFdel{of }\DIFdelend \DIFaddbegin \DIFadd{for }\DIFaddend $Y=10$ is 1.5 times that \DIFdelbegin \DIFdel{of }\DIFdelend \DIFaddbegin \DIFadd{for }\DIFaddend $Y=2$. %DIF < In fact, $\Gamma$ is determined from modeling with a specific model (e.g., a top-hat afterglow model; see the details in ~\citep{2026MNRAS.548ag555P}) to be about $1000 \pm 600$, which means the result of approach is consistent with the model-dependent estimation of afterglow.
+\DIFaddbegin \DIFadd{In fact, $\Gamma$ determined from the modeling with a specific model (e.g., a top-hat afterglow model; see the details in \mbox{%DIFAUXCMD
+\citealt{2026MNRAS.548ag555P}}\hskip0pt%DIFAUXCMD
+) is about $1000 \pm 600$, which means that the result of this approach is consistent with the model-dependent estimation from the afterglow.
+}\DIFaddend 
 
 %With Eqs~(\ref{eq:taugg})-(\ref{eq:Eobs2}), $\tau_{\gamma\gamma}<1$ of 1.21 GeV photon emitted requires $\Gamma\gtrsim1000$ for $R=10^{13}$ cm. Thus, the above estimate of $500\lesssim\Gamma\lesssim 900$ is large enough for the almost simultaneous emission of high-energy photons.
 

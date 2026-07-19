@@ -62,6 +62,20 @@
 - 需要的宏包：环境中补装了 fontawesome（texlive-fonts-extra）才能编译，供本地复现参考。
 - `diff.tex`（查看 v2→v3 已做修改）已用 `pdflatex -shell-escape` 编译为 diff.pdf（9 页；latexdiff 对个别公式标记有少量可恢复报错，不影响阅读）。
 
+### E. 双区（two-zone）洛伦兹因子致密性计算（新增，按邹老师指示）
+
+按"GeV 与 MeV 来自不同内激波（GeV 更靠外）"的双区模型，用致密性问题计算了两个区的洛伦兹因子下限：
+
+- **方法**：遵循 Zou, Fan & Piran (2011, ApJ 726, L2) 框架 + Gao & Zou (2023, ApJL 956, L38) 的修正（该文 T 区 = 本文 GeV 区）。因本暴 MeV 峰成分低能指数极硬（α=−0.06），式 (17) 中"方括号取 1"的近似失效，故不直接套式 (17)，而是**数值积分**光学深度（精确 γγ 截面、精确阈值、实测 BAND 谱），物理与式 (16)(17) 完全一致。代码：`twozone_gamma_min.py`（已用 2011 文表 1 验证：080916C 得 187 vs 文中 193；其余 3 个暴在因子 ≲2 内，差异源于其全模型的角度平均与已被 2023 文修正的归一化）。
+- **结果**（16.09 GeV 光子，t=0.96 s，z=2.34，MeV 靶场 = BAND 峰成分 L=3.7e53）：
+  - Γ_G,min ≈ **312**（η=1，R_G≈1.7×10¹⁵ cm）；η=0.01 → 566；η=0.001 → 744。靶场加入 PL 成分的 MeV 段后各升高 10–20%（342/666/875）。
+  - τ(Γ_G=300)=1 要求 **R_G ≈ 2.1×10¹⁵ cm**（BAND 靶）/ 3.7×10¹⁵（BAND+PL 靶）。
+  - 缺口上边界的恢复光子：1.21 GeV 只需 Γ_G ≳ 165；4.39 GeV 需 ≳ 209。
+  - 内区 Γ_M 的双区在轴约束（2011 文式 15 的几何）在 R_G~2e15 时**极弱**（Γ_M,min ~ O(1)）；Γ_M 的实际下限来自其自身 ~0.6 GeV 光子的逃逸。
+- **写入位置**：Appendix C 新增小节 "Two-zone constraints on the Lorentz factors"（在"Estimate of the lower limit of Γ..."之后）；response.docx 的 Response (4) 空置的 "In current modified version:" 处已填入对应英文说明；Gao & Zou (2023) 条目已加入 LIV.bib。
+- **⚠️ 关键自洽性问题（需邹老师决断，tex 中留有 TODO）**：Γ_G≈300 只有在 **R_G ≳ 2×10¹⁵ cm** 时才被允许；而正文 Discussion 中氘光解 τ_γD~1 的估计用的是 R≈2×10¹² cm（1 ms 变率）。二者相差 3 个量级——**在双区图像下，氘共振吸收只能发生在内区**（内区 Γ_M≈300、R_M≈2×10¹² cm，正文所有 τ_γD、τ_KN 数值天然归属内区），而外区（R_G≳2e15）只负责发出 ≥1.21 GeV 的恢复光子（该处 τ_γD 可忽略，故不被氘吸收，与观测一致）。这个分工其实让整个图像更自洽，但正文 "If the gap indeed arises from resonant deuterium absorption... fixes the Lorentz factor"（指 GeV 区）与 Comoving Frame Energetics 的表述需要相应改为指内区 Γ_M；被吸收的 [0.62,1.21] GeV 光子及 sub-GeV 包络应明确归属内区。请确认后我再统一改正文。
+- 另：若 GeV 区半径改用毫秒变率（η~10⁻³，R_G~10¹³），则 Γ_G,min≈740–880，与 Γ≈300 不相容——η 的取值等价于确定外区半径，请确认 η≈1（对应约 1 s 的抛射间隔）符合你的设想。
+
 ### D. 需作者决策 / 未处理
 
 - **Response (4) 未写完**：回复信中关于 Γ 估计的关键段落在 "The key problem of such estimate is the one-zone model. The lower limit given by compactness problem should never output a reasonable value. It is always" 处中断，"In current modified version:" 一节为空，"We also modified it totally…" 是占位。这是物理层面的未定项，只能由作者补写；tex 中相关位置（正文替代解释段、附录 Γ 下限小节）均已留 TODO 注释。回复信中若干占位图（resid 分布、似然扫描图）也需作者插入。

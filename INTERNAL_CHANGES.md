@@ -1,10 +1,28 @@
 # 本轮修改列表（内部，合作者审阅用）
 
-> 主文件：`GRB210704A-kilonova_v3_songxy.tex`（PRD 版）。只列本轮（Claude 协助）新做的修改；v2→v3 已完成的修改不在此列（可编译 `diff.tex` 查看）。
+> 主文件：`GRB210704A-kilonova_v3_songxy.tex`（PRD 版，LQ20255/Zou）。只列本轮（Claude 协助）新做的修改；v2→v3 已完成的修改不在此列（可编译 `diff.tex` 查看）。
 > 本轮全部修改可在 **`GRB210704A-kilonova_v3_changes.pdf`**（latexdiff：修改前 vs 修改后，蓝=新增、红/小字=删除）逐处查看。
 > 另：此前误将 LIV_v2.tex 当作主文件时也做了一轮修订（见文末第二部分），这些修改同样是真实的错误修正与润色，已保留，可按需取舍。
 
 ## 第一部分：GRB210704A-kilonova_v3_songxy.tex（主文件）
+
+### 0. 按审稿意见落实的修改（收到正确的 response.docx 后）
+
+对照两位审稿人意见与回复信草稿，发现回复信声称"已加入修改稿"的几处内容在 tex 中尚未落实，本轮补齐：
+
+0.1 **多成分/替代解释的排除段写入正文**（Response 3 & 8 承诺"added in lines 82-102/93-99"，但 tex 中整段仍是注释）：在 E′_gap 公式之后、"Resonant Nuclide Absorption"之前新增一段，内容按回复信：(i) 内禀 γγ 吸收造成 sub-GeV 截止——τγγ≳1 在 R~10¹¹ cm 处要求 Γ≲170，远低于 500–900 的估计；(ii) 以 γγ 产生中心 ~1 GeV 的吸收特征需要 Γ≈3000；(iii) GeV 光子非外激波起源——Barniol Duran & Kumar (2011) 预言 GeV 相对 100 MeV 延迟 ~0.5 t_d，与观测同时到达矛盾，另引 Liu & Wang 2011、He et al. 2011、Maxham et al. 2011，并指出 GeV 与 sub-GeV 包络的相关性难以用外激波解释；(iv) 双成分喷流与 KN 压低不能产生带流量恢复的缺口。段末接"Therefore, we turn to photon-matter interactions."。旧的矛盾注释块（Γ<2000@10¹² 等旧数字）已删除。**注意：γγ 的具体数字（170/3000）取自回复信 Response (3)，但 Response (4) 明言 Γ 估计正在重做，tex 中已留 TODO 注释，请最终定稿时核定。**
+
+0.2 **gtlike 数值写入脚注**（Referee B 要求"报告参数"）：连续 PL：−log(likelihood)=39.18、index=1.73±0.13；带缺口 [0.64, 1.17] GeV 的 PL：−log(likelihood)=34.53、index=1.70(+0.13/−0.12)；并注明该无 bin 似然比较下 ΔAIC=ΔBIC。原脚注中的"0.6 to 1.2 GeV"按回复信改为 [0.64, 1.17] GeV。
+
+0.3 **新增"为何不用 gabs 线型拟合"脚注**（Referee B 问"Have the authors tried fitting e.g. a line profile?"）：缺口附近统计量不足、线参数无法约束（过拟合），且缺口中心能量随时间变化，需时间分辨分析——内容取自 Response (2)/(5)。
+
+0.4 **恢复被 \iffalse 关闭的附录小节"Estimate of the lower limit of Γ with the photon with the highest energy"**（Response 4 称"These details are added in the Appendix C"，且正文 Γ≳500 的说法此前无任何推导支撑）：恢复 4 个公式；修正 R_γγ 公式中 (1+z) 应在分母（原文误乘）；f(E) 归一化单位 cm⁻¹ → cm⁻²；补结论句：16.09 GeV 光子的 τγγ<1 在 R~10¹¹ cm 给出 Γ≳500，且该方法 Γ∝(1+z)，共动能量几乎不受红移选择影响。**小节开头留 TODO：Response (4) 中"one-zone model/compactness 下限有问题、正在整体重做"的部分尚未写完，最终数字请团队核定。**
+
+0.5 **附录解释部分补齐**（Response 1 & 7）：解释 1) 补 CCF 时滞检验括注（<20 keV 与 50–100 keV 相关，时滞 ≈0）；解释 2) 补 SSC 情形的电子洛伦兹因子论证（γ_e,p≳10^3.5 → R~10¹⁴ cm → τγD≪1，与本方案矛盾）；结论处补"MeV 峰成分的辐射机制几乎不影响计算与结论"（L_γ,keV-GeV=1.0e54 erg/s ≈ 2.6×L_γ,peak，L_K 由前者估计）。
+
+0.6 **response.docx**：末尾空置的 "We also made other modifications." 一节已填入 (a)–(e) 五段英文说明（对应上述 0.1–0.5 及第 A/B 节的错误修正）。注意：回复信中 **Response (4) 的"In current modified version:"仍为空、句子在"It is always"处中断**，需要作者补写；文末孤立的"While"疑为残句，未动。
+
+## 第一部分（续）
 
 ### A. 遗留矛盾与断裂内容的修复（重点核对）
 
@@ -46,11 +64,13 @@
 
 ### D. 需作者决策 / 未处理
 
-- **response.docx 与本论文不符**：其内容是另一篇论文（AAS73042，jet-break 论文，Xin/Yi/Zou 致 ApJ）的回复信，**未做改动**。本轮修改的审稿人-facing 英文说明另存 `response_additions.docx`，供并入本文真正的回复信；如需我按真实审稿意见逐条撰写回复，请提供该报告。
+- **Response (4) 未写完**：回复信中关于 Γ 估计的关键段落在 "The key problem of such estimate is the one-zone model. The lower limit given by compactness problem should never output a reasonable value. It is always" 处中断，"In current modified version:" 一节为空，"We also modified it totally…" 是占位。这是物理层面的未定项，只能由作者补写；tex 中相关位置（正文替代解释段、附录 Γ 下限小节）均已留 TODO 注释。回复信中若干占位图（resid 分布、似然扫描图）也需作者插入。
+- **数值差异待核**：Response (1) 说峰成分低能光子指数约 −0.06，Response (5) 与 tex 均写约 −0.1（附录 BAND+PL 参数表中 α=−0.06）；L_γ,peak 在回复信中一处 3.7e53、一处 4e53。请统一。
 - A7 的统计关系小节：补全还是删除，请定；若补全需向 LIV.bib 添加 Liang 2010 / Lü 2012。
-- B15 的 entropy/enthalpy 请确认。
+- B15 的 entropy/enthalpy 请确认（本轮已按标准术语改回 high-entropy）。
 - τ_γD ≈ 1.4 Y_D L_K,55 R₁₂⁻¹ Γ₂.₅⁻³ 在 Y_D=0.3、R≈2×10¹² cm、Γ=300 下约为 0.25–0.5，正文靠 "L_K for each pulse is even larger" 支撑 τ_γD ≳ 1，论证略紧，审稿人可能追问，可考虑再加一句定量说明。
 - v3 中 \iffalse 的 "Note added"（FBOT 再增亮与中子衰变时间膨胀）未启用，如需请告知。
+- `response_additions.docx` 已删除（其内容并入 response.docx 的 "We also made other modifications." 一节）。
 
 ## 第二部分：LIV_v2.tex（AASTeX/ApJ 版，此前一轮所做，保留备用）
 

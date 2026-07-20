@@ -99,6 +99,39 @@ class TargetField:
         return n
 
 
+# --------------------------------------- quasi-thermal (mBB) target option
+# mBB parameters of the peaking component from the mBB+PL fit
+kT_min_mbb, kT_max_mbb, m_mbb = 19.1 * keV, 146.0 * keV, -0.29
+
+
+def shape_mbb(E):
+    """Unnormalized photon-number spectrum of the mBB (quasi-thermal) peak.
+
+    n(E) ~ int_{Tmin}^{Tmax} (T/Tmax)^m E^2/(exp(E/kT)-1) dlnT.
+    The crucial property is the exponential (Wien) cutoff above ~4 kT_max.
+    """
+    E = np.atleast_1d(E)
+    lnT = np.linspace(np.log(kT_min_mbb), np.log(kT_max_mbb), 60)
+    T = np.exp(lnT)
+    x = np.clip(E[:, None] / T[None, :], 1e-6, 500.0)
+    return np.trapezoid((E[:, None] ** 2 / np.expm1(x))
+                        * (T / kT_max_mbb) ** m_mbb, lnT, axis=1)
+
+
+class MBBField:
+    """Inner-zone photon field with the quasi-thermal (mBB) spectrum."""
+
+    def __init__(self, L=L_peak):
+        self.L = L
+        lnE = np.linspace(np.log(0.1 * keV), np.log(E_maxo), 400)
+        E = np.exp(lnE)
+        self.U = np.trapezoid(E * shape_mbb(E) * E, lnE)
+
+    def n_E(self, E, R):
+        return self.L * shape_mbb(E) / self.U \
+            / ((1 + z) ** 2 * 4 * np.pi * R ** 2 * c)
+
+
 # ------------------------------------------------- exact gamma-gamma sigma
 def sigma_gg(E_M, E_Tph, one_minus_cos):
     """Exact pair-production cross section (Jauch & Rohrlich 1980).
@@ -155,6 +188,38 @@ def tau_G(Gamma, eta=1.0, field=None, E_Tph=E_T, n_R=140):
             continue
         integ[i] = _dtau_dR(R, omc, field, E_Tph) * R   # d(lnR) measure
     return np.trapezoid(integ, lnR)
+
+
+def tau_cross(R_G, Gamma, theta_G, field, E_Tph, n_R=140):
+    """Crossing opacity for a photon emitted at angle theta_G at radius R_G
+    (general-angle version of tau_G with R_G given directly)."""
+    p = R_G * np.sin(theta_G)
+    lnR = np.linspace(np.log(R_G), np.log(1e4 * R_G), n_R)
+    Rg = np.exp(lnR)
+    out = np.zeros_like(Rg)
+    for i, R in enumerate(Rg):
+        th = np.arcsin(min(p / R, 1.0))
+        omc = 1 - np.cos(th)
+        if omc <= 0:
+            continue
+        out[i] = _dtau_dR(R, omc, field, E_Tph) * R
+    return np.trapezoid(out, lnR)
+
+
+def transmission(Gamma, field, E_Tph, dt=1e-3, beta_ph=1.80, n_th=50):
+    """Doppler-weighted transmitted fraction <e^-tau> for a photon of
+    observed energy E_Tph emitted from the outer zone at
+    R_G = 2 Gamma^2 c dt/(1+z) (dt: variability timescale), averaging
+    over the emission angle with the D^(3+beta) weighting
+    (cf. Eq. (13) of Gao & Zou 2023)."""
+    R_G = 2 * Gamma ** 2 * c * dt / (1 + z)
+    ths = np.linspace(0.01 / Gamma, 4.0 / Gamma, n_th)
+    taus = np.array([tau_cross(R_G, Gamma, th, field, E_Tph)
+                     for th in ths])
+    bulk = np.sqrt(1 - 1 / Gamma ** 2)
+    D = 1.0 / (Gamma * (1 - bulk * np.cos(ths)))
+    w = D ** (3 + beta_ph) * ths
+    return np.trapezoid(w * np.exp(-taus), ths) / np.trapezoid(w, ths)
 
 
 def gamma_G_min(eta=1.0, field=None, E_Tph=E_T):
@@ -266,3 +331,26 @@ if __name__ == '__main__':
         for eta in (1.0, 1e-2, 1e-3):
             print(f'  eta = {eta:7.0e}:  '
                   f'tau = {tau_G(300., eta=eta, field=field):.3e}')
+
+    # ---- Model 2 with the quasi-thermal (mBB) inner field: the exponential
+    #      cutoff of the target spectrum removes the >0.5 MeV targets needed
+    #      by the multi-GeV photons, so the outer zone can sit at the
+    #      millisecond-variability internal-shock radius.
+    mbb = MBBField()
+    print('\n=== Model 2: outer internal shock at R_G = 2 Gamma^2 c dt/(1+z),'
+          ' dt = 1 ms; inner field = mBB (quasi-thermal) ===')
+    print('--- tau_cross(theta_G = 1/Gamma) at Gamma_G = 300,'
+          ' R_G = 1.6e12 cm:')
+    R_G = 2 * 300 ** 2 * c * 1e-3 / (1 + z)
+    for EG in (16.09, 8.54, 4.39, 1.21):
+        t_mbb = tau_cross(R_G, 300., 1 / 300., mbb, EG * GeV)
+        t_bnd = tau_cross(R_G, 300., 1 / 300., band_only, EG * GeV)
+        print(f'  E = {EG:6.2f} GeV: tau(mBB) = {t_mbb:9.3e}'
+              f'   [BAND-tail target would give {t_bnd:9.2e}]')
+    print('--- Doppler-weighted transmission <e^-tau> of the 16.09 GeV'
+          ' photon vs Gamma_G:')
+    for G in (200., 250., 300., 350.):
+        f_tr = transmission(G, mbb, 16.09 * GeV)
+        print(f'  Gamma_G = {G:4.0f}: <e^-tau> = {f_tr:5.2f}')
+    print(f'--- 8.54 GeV at Gamma_G = 300: <e^-tau> ='
+          f' {transmission(300., mbb, 8.54 * GeV):5.2f}')

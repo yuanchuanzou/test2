@@ -94,7 +94,7 @@
 - **Response (4) 未写完**：回复信中关于 Γ 估计的关键段落在 "The key problem of such estimate is the one-zone model. The lower limit given by compactness problem should never output a reasonable value. It is always" 处中断，"In current modified version:" 一节为空，"We also modified it totally…" 是占位。这是物理层面的未定项，只能由作者补写；tex 中相关位置（正文替代解释段、附录 Γ 下限小节）均已留 TODO 注释。回复信中若干占位图（resid 分布、似然扫描图）也需作者插入。
 - **数值差异待核**：Response (1) 说峰成分低能光子指数约 −0.06，Response (5) 与 tex 均写约 −0.1（附录 BAND+PL 参数表中 α=−0.06）；L_γ,peak 在回复信中一处 3.7e53、一处 4e53。请统一。
 - A7 的统计关系小节：补全还是删除，请定；若补全需向 LIV.bib 添加 Liang 2010 / Lü 2012。
-- ~~B15 的 entropy/enthalpy 请确认~~ **已按邹老师指示改定**：v3 (line 224) 与 LIV_v2（line 337 正文 + line 341 注释段）的 "high-entropy winds" 统一改回 **"high-enthalpy winds"**（作者原意，非笔误；B15 之前的"改正"是我判断错误）。两处 "dimensionless entropy"（v3:565、LIV_v2:406，指 η 参数，标准 fireball 术语）未动，与此无关。
+- ~~B15 的 entropy/enthalpy 请确认~~ **已按邹老师指示全部改为 enthalpy**：两文件中所有 "entropy" 已改为 "enthalpy"，共 5 处——v3 line 224、LIV_v2 line 337（正文）+ line 341（注释段）的 "high-entropy winds" → "high-enthalpy winds"；以及 v3 line 565、LIV_v2 line 406 的 "$\eta$ is the dimensionless entropy" → "dimensionless enthalpy"（邹老师指出这是沿用已久的历史性误称，η 物理上表示的正是比恩塔尔比，不是熵）。两文件目前均不含 "entropy" 字样。
 - τ_γD ≈ 1.4 Y_D L_K,55 R₁₂⁻¹ Γ₂.₅⁻³ 在 Y_D=0.3、R≈2×10¹² cm、Γ=300 下约为 0.25–0.5，正文靠 "L_K for each pulse is even larger" 支撑 τ_γD ≳ 1，论证略紧，审稿人可能追问，可考虑再加一句定量说明。
 - v3 中 \iffalse 的 "Note added"（FBOT 再增亮与中子衰变时间膨胀）未启用，如需请告知。
 - `response_additions.docx` 已删除（其内容并入 response.docx 的 "We also made other modifications." 一节）。
